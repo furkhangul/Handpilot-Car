@@ -1,0 +1,21 @@
+# Kişisel veri: ham görüntüler ve sürüş kayıtları (README §9.7)
+dataset/raw/
+logs/
+
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Sistem / editör
+.DS_Store
+.vscode/
+.idea/
+
+# Office ara çıktıları
+~$*
+docx_build/
+pptx_build/
