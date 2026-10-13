@@ -1,0 +1,102 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="560" viewBox="0 0 760 560" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<defs><marker id="a" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="8" refY="8" orient="auto"><path d="M0 0 L16 8 L0 16 z" fill="#38bdf8"/></marker></defs>
+<rect width="760" height="560" rx="22" fill="#0b1220"/>
+<text x="30" y="44" font-size="22" font-weight="800" fill="#f1f5f9">MediaPipe Hands · 21 el noktası</text>
+<text x="30" y="68" font-size="14" fill="#94a3b8">Her kare → 21 × (x, y, z) = 63 sayı. Görüntünün kendisi değil, bu noktalar sınıflandırılır.</text>
+<line x1="300" y1="470" x2="255" y2="335" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<line x1="255" y1="335" x2="302" y2="326" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<line x1="302" y1="326" x2="345" y2="334" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<line x1="345" y1="334" x2="385" y2="352" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="470" x2="385" y2="352" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="470" x2="250" y2="440" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+<line x1="250" y1="440" x2="208" y2="400" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+<line x1="208" y1="400" x2="182" y2="355" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+<line x1="182" y1="355" x2="160" y2="312" stroke="#f59e0b" stroke-width="5" stroke-linecap="round"/>
+<line x1="255" y1="335" x2="244" y2="260" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+<line x1="244" y1="260" x2="239" y2="214" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+<line x1="239" y1="214" x2="235" y2="172" stroke="#22c55e" stroke-width="5" stroke-linecap="round"/>
+<line x1="302" y1="326" x2="302" y2="244" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+<line x1="302" y1="244" x2="302" y2="194" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+<line x1="302" y1="194" x2="302" y2="148" stroke="#3b82f6" stroke-width="5" stroke-linecap="round"/>
+<line x1="345" y1="334" x2="353" y2="258" stroke="#a855f7" stroke-width="5" stroke-linecap="round"/>
+<line x1="353" y1="258" x2="357" y2="213" stroke="#a855f7" stroke-width="5" stroke-linecap="round"/>
+<line x1="357" y1="213" x2="360" y2="175" stroke="#a855f7" stroke-width="5" stroke-linecap="round"/>
+<line x1="385" y1="352" x2="400" y2="294" stroke="#ec4899" stroke-width="5" stroke-linecap="round"/>
+<line x1="400" y1="294" x2="409" y2="259" stroke="#ec4899" stroke-width="5" stroke-linecap="round"/>
+<line x1="409" y1="259" x2="417" y2="226" stroke="#ec4899" stroke-width="5" stroke-linecap="round"/>
+<line x1="300" y1="470" x2="302" y2="326" stroke="#fbbf24" stroke-width="3" stroke-dasharray="7 6"/>
+<text x="314" y="420" font-size="13" font-weight="700" fill="#fbbf24">ölçek = |0 → 9|</text>
+<line x1="208" y1="400" x2="141" y2="277" stroke="#38bdf8" stroke-width="3" marker-end="url(#a)"/>
+<line x1="208" y1="400" x2="98" y2="400" stroke="#38bdf8" stroke-width="1.5" stroke-dasharray="4 4"/>
+<text x="58" y="430" font-size="13" font-weight="700" fill="#38bdf8">başparmak açısı</text>
+<text x="58" y="448" font-size="12" fill="#7dd3fc">(2 → 4), yönde yataydan ≤ 35°</text>
+<circle cx="300" cy="470" r="12" fill="#0b1220" stroke="#e2e8f0" stroke-width="3"/>
+<text x="300" y="474.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">0</text>
+<circle cx="250" cy="440" r="12" fill="#0b1220" stroke="#f59e0b" stroke-width="3"/>
+<text x="250" y="444.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">1</text>
+<circle cx="208" cy="400" r="12" fill="#0b1220" stroke="#f59e0b" stroke-width="3"/>
+<text x="208" y="404.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">2</text>
+<circle cx="182" cy="355" r="12" fill="#0b1220" stroke="#f59e0b" stroke-width="3"/>
+<text x="182" y="359.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">3</text>
+<circle cx="160" cy="312" r="12" fill="#0b1220" stroke="#f59e0b" stroke-width="3"/>
+<text x="160" y="316.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">4</text>
+<circle cx="255" cy="335" r="12" fill="#0b1220" stroke="#22c55e" stroke-width="3"/>
+<text x="255" y="339.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">5</text>
+<circle cx="244" cy="260" r="12" fill="#0b1220" stroke="#22c55e" stroke-width="3"/>
+<text x="244" y="264.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">6</text>
+<circle cx="239" cy="214" r="12" fill="#0b1220" stroke="#22c55e" stroke-width="3"/>
+<text x="239" y="218.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">7</text>
+<circle cx="235" cy="172" r="12" fill="#0b1220" stroke="#22c55e" stroke-width="3"/>
+<text x="235" y="176.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">8</text>
+<circle cx="302" cy="326" r="12" fill="#0b1220" stroke="#3b82f6" stroke-width="3"/>
+<text x="302" y="330.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">9</text>
+<circle cx="302" cy="244" r="12" fill="#0b1220" stroke="#3b82f6" stroke-width="3"/>
+<text x="302" y="248.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">10</text>
+<circle cx="302" cy="194" r="12" fill="#0b1220" stroke="#3b82f6" stroke-width="3"/>
+<text x="302" y="198.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">11</text>
+<circle cx="302" cy="148" r="12" fill="#0b1220" stroke="#3b82f6" stroke-width="3"/>
+<text x="302" y="152.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">12</text>
+<circle cx="345" cy="334" r="12" fill="#0b1220" stroke="#a855f7" stroke-width="3"/>
+<text x="345" y="338.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">13</text>
+<circle cx="353" cy="258" r="12" fill="#0b1220" stroke="#a855f7" stroke-width="3"/>
+<text x="353" y="262.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">14</text>
+<circle cx="357" cy="213" r="12" fill="#0b1220" stroke="#a855f7" stroke-width="3"/>
+<text x="357" y="217.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">15</text>
+<circle cx="360" cy="175" r="12" fill="#0b1220" stroke="#a855f7" stroke-width="3"/>
+<text x="360" y="179.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">16</text>
+<circle cx="385" cy="352" r="12" fill="#0b1220" stroke="#ec4899" stroke-width="3"/>
+<text x="385" y="356.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">17</text>
+<circle cx="400" cy="294" r="12" fill="#0b1220" stroke="#ec4899" stroke-width="3"/>
+<text x="400" y="298.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">18</text>
+<circle cx="409" cy="259" r="12" fill="#0b1220" stroke="#ec4899" stroke-width="3"/>
+<text x="409" y="263.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">19</text>
+<circle cx="417" cy="226" r="12" fill="#0b1220" stroke="#ec4899" stroke-width="3"/>
+<text x="417" y="230.5" font-size="12" font-weight="700" text-anchor="middle" fill="#f8fafc">20</text>
+<rect x="480" y="90" width="270" height="420" rx="16" fill="#111827" stroke="#1f2937"/>
+<circle cx="500" cy="115" r="8" fill="#e2e8f0"/>
+<text x="518" y="120" font-size="14" font-weight="700" fill="#f1f5f9">0</text>
+<text x="570" y="120" font-size="14" fill="#cbd5e1">bilek (orijin)</text>
+<circle cx="500" cy="149" r="8" fill="#f59e0b"/>
+<text x="518" y="154" font-size="14" font-weight="700" fill="#f1f5f9">1–4</text>
+<text x="570" y="154" font-size="14" fill="#cbd5e1">başparmak · 4 = uç</text>
+<circle cx="500" cy="183" r="8" fill="#22c55e"/>
+<text x="518" y="188" font-size="14" font-weight="700" fill="#f1f5f9">5–8</text>
+<text x="570" y="188" font-size="14" fill="#cbd5e1">işaret · 8 = uç</text>
+<circle cx="500" cy="217" r="8" fill="#3b82f6"/>
+<text x="518" y="222" font-size="14" font-weight="700" fill="#f1f5f9">9–12</text>
+<text x="570" y="222" font-size="14" fill="#cbd5e1">orta · 9 = kök (ölçek)</text>
+<circle cx="500" cy="251" r="8" fill="#a855f7"/>
+<text x="518" y="256" font-size="14" font-weight="700" fill="#f1f5f9">13–16</text>
+<text x="570" y="256" font-size="14" fill="#cbd5e1">yüzük · 16 = uç</text>
+<circle cx="500" cy="285" r="8" fill="#ec4899"/>
+<text x="518" y="290" font-size="14" font-weight="700" fill="#f1f5f9">17–20</text>
+<text x="570" y="290" font-size="14" fill="#cbd5e1">serçe · 17 = kök</text>
+<text x="496" y="340" font-size="15" font-weight="800" fill="#f1f5f9">Normalizasyon · özellik v1</text>
+<text x="496" y="366" font-size="13" fill="#cbd5e1">1. Bilek (0) orijine taşınır</text>
+<text x="496" y="388" font-size="13" fill="#cbd5e1">2. Hepsi |0 → 9| uzunluğuna bölünür</text>
+<text x="496" y="410" font-size="13" fill="#cbd5e1">3. Döndürme normalize EDİLMEZ</text>
+<text x="496" y="432" font-size="13" fill="#cbd5e1">   (sol/sağ bilgisi yönde saklı)</text>
+<text x="496" y="454" font-size="13" fill="#cbd5e1">4. Düzleştir → 63 özellik</text>
+<text x="496" y="476" font-size="13" fill="#cbd5e1">5. + parmak açıklık oranları,</text>
+<text x="496" y="498" font-size="13" fill="#cbd5e1">   başparmak açısı (sin, cos)</text>
+</svg>

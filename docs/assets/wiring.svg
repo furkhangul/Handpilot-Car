@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="620" viewBox="0 0 1200 620" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="1200" height="620" rx="22" fill="#0b1220"/>
+<text x="30" y="44" font-size="22" font-weight="800" fill="#f1f5f9" text-anchor="start">Bağlantı şeması · ESP32 ↔ TB6612FNG</text>
+<text x="30" y="68" font-size="14" font-weight="400" fill="#94a3b8" text-anchor="start">Genel Rapor pin planı. Recep Özkan onayıyla kesinleşir → firmware/handpilot_esp32/config.h</text>
+<rect x="60" y="92" width="220" height="400" rx="12" fill="#1f2937" stroke="#60a5fa" stroke-width="2"/>
+<text x="170" y="118" font-size="15" font-weight="800" fill="#93c5fd" text-anchor="middle">ESP32-WROOM-32D</text>
+<rect x="560" y="92" width="200" height="370" rx="12" fill="#2e1065" stroke="#c4b5fd" stroke-width="2"/>
+<text x="660" y="118" font-size="15" font-weight="800" fill="#ddd6fe" text-anchor="middle">TB6612FNG</text>
+<line x1="280" y1="146" x2="560" y2="146" stroke="#f59e0b" stroke-width="3"/>
+<circle cx="280" cy="146" r="5" fill="#f59e0b"/><circle cx="560" cy="146" r="5" fill="#f59e0b"/>
+<text x="268" y="151" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO25</text>
+<text x="572" y="151" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">PWMA</text>
+<line x1="280" y1="182" x2="560" y2="182" stroke="#38bdf8" stroke-width="3"/>
+<circle cx="280" cy="182" r="5" fill="#38bdf8"/><circle cx="560" cy="182" r="5" fill="#38bdf8"/>
+<text x="268" y="187" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO26</text>
+<text x="572" y="187" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">AIN1</text>
+<line x1="280" y1="218" x2="560" y2="218" stroke="#38bdf8" stroke-width="3"/>
+<circle cx="280" cy="218" r="5" fill="#38bdf8"/><circle cx="560" cy="218" r="5" fill="#38bdf8"/>
+<text x="268" y="223" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO27</text>
+<text x="572" y="223" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">AIN2</text>
+<line x1="280" y1="254" x2="560" y2="254" stroke="#f59e0b" stroke-width="3"/>
+<circle cx="280" cy="254" r="5" fill="#f59e0b"/><circle cx="560" cy="254" r="5" fill="#f59e0b"/>
+<text x="268" y="259" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO13</text>
+<text x="572" y="259" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">PWMB</text>
+<line x1="280" y1="290" x2="560" y2="290" stroke="#38bdf8" stroke-width="3"/>
+<circle cx="280" cy="290" r="5" fill="#38bdf8"/><circle cx="560" cy="290" r="5" fill="#38bdf8"/>
+<text x="268" y="295" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO32</text>
+<text x="572" y="295" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">BIN1</text>
+<line x1="280" y1="326" x2="560" y2="326" stroke="#38bdf8" stroke-width="3"/>
+<circle cx="280" cy="326" r="5" fill="#38bdf8"/><circle cx="560" cy="326" r="5" fill="#38bdf8"/>
+<text x="268" y="331" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO33</text>
+<text x="572" y="331" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">BIN2</text>
+<line x1="280" y1="362" x2="560" y2="362" stroke="#a855f7" stroke-width="3"/>
+<circle cx="280" cy="362" r="5" fill="#a855f7"/><circle cx="560" cy="362" r="5" fill="#a855f7"/>
+<text x="268" y="367" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO23</text>
+<text x="572" y="367" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">STBY</text>
+<line x1="280" y1="398" x2="560" y2="398" stroke="#ef4444" stroke-width="3"/>
+<circle cx="280" cy="398" r="5" fill="#ef4444"/><circle cx="560" cy="398" r="5" fill="#ef4444"/>
+<text x="268" y="403" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">3V3</text>
+<text x="572" y="403" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">VCC</text>
+<line x1="280" y1="434" x2="560" y2="434" stroke="#a3a3a3" stroke-width="3" stroke-dasharray="7 4"/>
+<circle cx="280" cy="434" r="5" fill="#a3a3a3"/><circle cx="560" cy="434" r="5" fill="#a3a3a3"/>
+<text x="268" y="439" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GND</text>
+<text x="572" y="439" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="start">GND</text>
+<circle cx="280" cy="470" r="5" fill="#22c55e"/>
+<text x="268" y="475" font-size="13" font-weight="700" fill="#e2e8f0" text-anchor="end">GPIO34</text>
+<line x1="280" y1="470" x2="380" y2="470" stroke="#22c55e" stroke-width="3"/>
+<rect x="380" y="452" width="130" height="36" rx="8" fill="#052e16" stroke="#22c55e"/>
+<text x="445" y="468" font-size="12" font-weight="700" fill="#bbf7d0" text-anchor="middle">10k / 10k bölücü</text>
+<text x="445" y="483" font-size="11" font-weight="400" fill="#86efac" text-anchor="middle">vbat → /status</text>
+<circle cx="760" cy="146" r="5" fill="#fb923c"/>
+<text x="748" y="151" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">AO1</text>
+<circle cx="760" cy="182" r="5" fill="#fb923c"/>
+<text x="748" y="187" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">AO2</text>
+<circle cx="760" cy="254" r="5" fill="#fb923c"/>
+<text x="748" y="259" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">BO1</text>
+<circle cx="760" cy="290" r="5" fill="#fb923c"/>
+<text x="748" y="295" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">BO2</text>
+<circle cx="760" cy="362" r="5" fill="#ef4444"/>
+<text x="748" y="367" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">VM</text>
+<circle cx="760" cy="398" r="5" fill="#a3a3a3"/>
+<text x="748" y="403" font-size="13" font-weight="700" fill="#ede9fe" text-anchor="end">GND</text>
+<path d="M760 146 H900 V150" stroke="#fb923c" stroke-width="3" fill="none"/>
+<path d="M760 182 H900 V178" stroke="#fb923c" stroke-width="3" fill="none"/>
+<circle cx="930" cy="164" r="30" fill="#facc15" stroke="#a16207" stroke-width="3"/>
+<text x="930" y="170" font-size="18" font-weight="800" fill="#713f12" text-anchor="middle">M</text>
+<line x1="900" y1="150" x2="902" y2="150" stroke="#fb923c"/>
+<text x="975" y="160" font-size="14" font-weight="700" fill="#fde68a" text-anchor="start">Sol motor (A)</text>
+<text x="975" y="178" font-size="12" font-weight="400" fill="#94a3b8" text-anchor="start">uçlar arası 100 nF</text>
+<path d="M760 254 H900 V258" stroke="#fb923c" stroke-width="3" fill="none"/>
+<path d="M760 290 H900 V286" stroke="#fb923c" stroke-width="3" fill="none"/>
+<circle cx="930" cy="272" r="30" fill="#facc15" stroke="#a16207" stroke-width="3"/>
+<text x="930" y="278" font-size="18" font-weight="800" fill="#713f12" text-anchor="middle">M</text>
+<line x1="900" y1="258" x2="902" y2="258" stroke="#fb923c"/>
+<text x="975" y="268" font-size="14" font-weight="700" fill="#fde68a" text-anchor="start">Sağ motor (B)</text>
+<text x="975" y="286" font-size="12" font-weight="400" fill="#94a3b8" text-anchor="start">uçlar arası 100 nF</text>
+<path d="M760 362 H820 V430 H850" stroke="#ef4444" stroke-width="3" fill="none"/>
+<rect x="850" y="414" width="58" height="32" rx="6" fill="#374151" stroke="#9ca3af"/>
+<text x="879" y="435" font-size="12" font-weight="700" fill="#e5e7eb" text-anchor="middle">switch</text>
+<path d="M908 430 H930" stroke="#ef4444" stroke-width="3"/>
+<rect x="930" y="420" width="64" height="20" rx="9" fill="#e0f2fe" fill-opacity="0.4" stroke="#7dd3fc"/>
+<text x="962" y="434" font-size="12" font-weight="800" fill="#e0f2fe" text-anchor="middle">2 A</text>
+<path d="M994 430 H1020" stroke="#ef4444" stroke-width="3"/>
+<rect x="1020" y="404" width="140" height="94" rx="10" fill="#14532d" stroke="#22c55e" stroke-width="2"/>
+<text x="1090" y="432" font-size="14" font-weight="800" fill="#f0fdf4" text-anchor="middle">4×AA Ni-MH</text>
+<text x="1090" y="452" font-size="12" font-weight="400" fill="#bbf7d0" text-anchor="middle">4.8 V · 1300 mAh</text>
+<text x="1036" y="430" font-size="16" font-weight="800" fill="#fca5a5" text-anchor="start">+</text>
+<text x="1036" y="488" font-size="18" font-weight="800" fill="#e5e7eb" text-anchor="start">−</text>
+<path d="M760 398 H800 V530 H1060 V498" stroke="#a3a3a3" stroke-width="3" fill="none" stroke-dasharray="7 4"/>
+<line x1="800" y1="362" x2="800" y2="372" stroke="#ef4444" stroke-width="2"/>
+<rect x="788" y="372" width="24" height="5" fill="#93c5fd"/><rect x="788" y="381" width="24" height="5" fill="#93c5fd"/>
+<line x1="800" y1="386" x2="800" y2="398" stroke="#a3a3a3" stroke-width="2"/>
+<text x="818" y="384" font-size="11" font-weight="700" fill="#93c5fd" text-anchor="start">100 µF</text>
+<path d="M800 530 H170 V492" stroke="#a3a3a3" stroke-width="3" fill="none" stroke-dasharray="7 4"/>
+<text x="470" y="550" font-size="12" font-weight="600" fill="#a3a3a3" text-anchor="middle">ortak GND · pertinaks üzerinde tek nokta</text>
+<rect x="60" y="556" width="220" height="40" rx="10" fill="#334155" stroke="#94a3b8" stroke-dasharray="5 3"/>
+<text x="170" y="581" font-size="12" font-weight="700" fill="#e2e8f0" text-anchor="middle">Powerbank 5 V → USB (önerilen)</text>
+<line x1="110" y1="556" x2="110" y2="492" stroke="#e2e8f0" stroke-width="2.5"/>
+<text x="1160" y="580" font-size="12" font-weight="600" fill="#c4b5fd" text-anchor="end">Açılışta STBY = LOW, motor pinleri WiFi'den ÖNCE LOW yapılır.</text>
+</svg>
