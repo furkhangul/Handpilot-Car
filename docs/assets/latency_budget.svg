@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="310" viewBox="0 0 1100 310" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="1100" height="310" rx="22" fill="#0b1220"/>
+<text x="30" y="44" font-size="22" font-weight="800" fill="#f1f5f9" text-anchor="start">Fren gecikme bütçesi (tahmini)</text>
+<text x="30" y="68" font-size="14" font-weight="400" fill="#94a3b8" text-anchor="start">El açıldı → teker durmaya başladı. Hedef NFR-01 / K4: ≤ 300 ms. Ölçüm H4'te 240 fps videoyla yapılır.</text>
+<line x1="190.0" y1="96" x2="190.0" y2="232" stroke="#1f2937"/>
+<text x="190.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">0 ms</text>
+<line x1="315.0" y1="96" x2="315.0" y2="232" stroke="#1f2937"/>
+<text x="315.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">50 ms</text>
+<line x1="440.0" y1="96" x2="440.0" y2="232" stroke="#1f2937"/>
+<text x="440.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">100 ms</text>
+<line x1="565.0" y1="96" x2="565.0" y2="232" stroke="#1f2937"/>
+<text x="565.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">150 ms</text>
+<line x1="690.0" y1="96" x2="690.0" y2="232" stroke="#1f2937"/>
+<text x="690.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">200 ms</text>
+<line x1="815.0" y1="96" x2="815.0" y2="232" stroke="#1f2937"/>
+<text x="815.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">250 ms</text>
+<line x1="940.0" y1="96" x2="940.0" y2="232" stroke="#1f2937"/>
+<text x="940.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">300 ms</text>
+<line x1="1065.0" y1="96" x2="1065.0" y2="232" stroke="#1f2937"/>
+<text x="1065.0" y="250" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">350 ms</text>
+<text x="30" y="137" font-size="15" font-weight="700" fill="#e2e8f0" text-anchor="start">En iyi durum</text>
+<rect x="190.0" y="110" width="82.5" height="40" fill="#64748b"/>
+<text x="231.25" y="135" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">33</text>
+<rect x="272.5" y="110" width="50.0" height="40" fill="#22d3ee"/>
+<text x="297.5" y="135" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">20</text>
+<rect x="322.5" y="110" width="5.0" height="40" fill="#a855f7"/>
+<rect x="327.5" y="110" width="167.5" height="40" fill="#ef4444"/>
+<text x="411.25" y="135" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">67</text>
+<rect x="495.0" y="110" width="25.0" height="40" fill="#38bdf8"/>
+<rect x="520.0" y="110" width="125.0" height="40" fill="#f59e0b"/>
+<text x="582.5" y="135" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">50</text>
+<text x="655.0" y="136" font-size="15" font-weight="800" fill="#f1f5f9" text-anchor="start">≈ 182 ms</text>
+<text x="30" y="199" font-size="15" font-weight="700" fill="#e2e8f0" text-anchor="start">En kötü durum</text>
+<rect x="190.0" y="172" width="82.5" height="40" fill="#64748b"/>
+<text x="231.25" y="197" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">33</text>
+<rect x="272.5" y="172" width="87.5" height="40" fill="#22d3ee"/>
+<text x="316.25" y="197" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">35</text>
+<rect x="360.0" y="172" width="5.0" height="40" fill="#a855f7"/>
+<rect x="365.0" y="172" width="167.5" height="40" fill="#ef4444"/>
+<text x="448.75" y="197" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">67</text>
+<rect x="532.5" y="172" width="150.0" height="40" fill="#38bdf8"/>
+<text x="607.5" y="197" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">60</text>
+<rect x="682.5" y="172" width="250.0" height="40" fill="#f59e0b"/>
+<text x="807.5" y="197" font-size="12" font-weight="700" fill="#0b1220" text-anchor="middle">100</text>
+<text x="942.5" y="198" font-size="15" font-weight="800" fill="#f1f5f9" text-anchor="start">≈ 297 ms</text>
+<line x1="940.0" y1="90" x2="940.0" y2="238" stroke="#f87171" stroke-width="3" stroke-dasharray="8 5"/>
+<text x="940.0" y="86" font-size="13" font-weight="800" fill="#f87171" text-anchor="middle">hedef 300 ms</text>
+<rect x="30" y="276" width="14" height="14" rx="3" fill="#64748b"/>
+<text x="50" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">Kamera 33 ms</text>
+<rect x="158.4" y="276" width="14" height="14" rx="3" fill="#22d3ee"/>
+<text x="178.4" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">MediaPipe 20–35 ms</text>
+<rect x="330.0" y="276" width="14" height="14" rx="3" fill="#a855f7"/>
+<text x="350.0" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">Model 2 ms</text>
+<rect x="444.0" y="276" width="14" height="14" rx="3" fill="#ef4444"/>
+<text x="464.0" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">Onay (2 kare) 67 ms</text>
+<rect x="622.8" y="276" width="14" height="14" rx="3" fill="#38bdf8"/>
+<text x="642.8" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">HTTP 10–60 ms</text>
+<rect x="758.4" y="276" width="14" height="14" rx="3" fill="#f59e0b"/>
+<text x="778.4" y="288" font-size="13" font-weight="400" fill="#cbd5e1" text-anchor="start">Mekanik 50–100 ms</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="438" viewBox="0 0 1100 438" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+<rect width="1100" height="438" rx="22" fill="#0b1220"/>
+<text x="30" y="44" font-size="22" font-weight="800" fill="#f1f5f9" text-anchor="start">Onay ve güvenlik tepki süreleri</text>
+<text x="30" y="68" font-size="14" font-weight="400" fill="#94a3b8" text-anchor="start">Durmak hızlı, kalkmak temkinli: kalkış frenden bilerek ~100 ms yavaş. Herhangi bir katman “dur” derse araç durur.</text>
+<line x1="300.0" y1="88" x2="300.0" y2="400" stroke="#1f2937"/>
+<text x="300.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">0 ms</text>
+<line x1="415.0" y1="88" x2="415.0" y2="400" stroke="#1f2937"/>
+<text x="415.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">250 ms</text>
+<line x1="530.0" y1="88" x2="530.0" y2="400" stroke="#1f2937"/>
+<text x="530.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">500 ms</text>
+<line x1="645.0" y1="88" x2="645.0" y2="400" stroke="#1f2937"/>
+<text x="645.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">750 ms</text>
+<line x1="760.0" y1="88" x2="760.0" y2="400" stroke="#1f2937"/>
+<text x="760.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">1000 ms</text>
+<line x1="875.0" y1="88" x2="875.0" y2="400" stroke="#1f2937"/>
+<text x="875.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">1250 ms</text>
+<line x1="990.0" y1="88" x2="990.0" y2="400" stroke="#1f2937"/>
+<text x="990.0" y="418" font-size="12" font-weight="400" fill="#64748b" text-anchor="middle">1500 ms</text>
+<text x="30" y="117" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">1 · Fren hareketi (2 kare)</text>
+<rect x="300" y="96" width="30.8" height="30" rx="6" fill="#ef4444"/>
+<text x="340.82" y="117" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">~67 ms + iletim</text>
+<text x="30" y="161" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">Yön onayı (3 kare)</text>
+<rect x="300" y="140" width="46.0" height="30" rx="6" fill="#3b82f6"/>
+<text x="356.0" y="161" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">~100 ms</text>
+<text x="30" y="205" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">Gaz onayı / kalkış (5 kare)</text>
+<rect x="300" y="184" width="76.8" height="30" rx="6" fill="#22c55e"/>
+<text x="386.82" y="205" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">~167 ms</text>
+<text x="30" y="249" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">2 · El kaybı</text>
+<rect x="300" y="228" width="230.0" height="30" rx="6" fill="#f59e0b"/>
+<text x="540.0" y="249" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">0.5 sn</text>
+<text x="30" y="293" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">3 · Belirsizlik (diger)</text>
+<rect x="300" y="272" width="460.0" height="30" rx="6" fill="#eab308"/>
+<text x="770.0" y="293" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">1.0 sn</text>
+<text x="30" y="337" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">6 · ESP32 watchdog</text>
+<rect x="300" y="316" width="460.0" height="30" rx="6" fill="#a855f7"/>
+<text x="770.0" y="337" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">1.0 sn</text>
+<text x="30" y="381" font-size="14" font-weight="600" fill="#e2e8f0" text-anchor="start">4 · Bağlantı izleme (3 hata)</text>
+<rect x="300" y="360" width="690.0" height="30" rx="6" fill="#64748b"/>
+<text x="1000.0" y="381" font-size="13" font-weight="700" fill="#f1f5f9" text-anchor="start">≤ 1.5 sn</text>
+</svg>
