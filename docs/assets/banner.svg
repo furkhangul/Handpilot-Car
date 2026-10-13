@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="340" viewBox="0 0 1200 340" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1e3a5f"/>
+    </linearGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity="0.05"/>
+    </pattern>
+    <linearGradient id="body" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbbf24"/>
+      <stop offset="1" stop-color="#d97706"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="340" rx="24" fill="url(#bg)"/>
+  <rect width="1200" height="340" rx="24" fill="url(#grid)"/>
+
+  <!-- Başlık -->
+  <text x="60" y="120" font-size="66" font-weight="800" fill="#f8fafc">HandPilot-Car</text>
+  <text x="62" y="166" font-size="28" font-weight="600" fill="#93c5fd">Kumanda yok. Elin direksiyon.</text>
+  <text x="62" y="204" font-size="17" fill="#cbd5e1">Laptop kamerasına gösterilen tek elle, WiFi üzerinden</text>
+  <text x="62" y="228" font-size="17" fill="#cbd5e1">gerçek zamanlı sürülen küçük kara aracı.</text>
+
+  <!-- Teknoloji etiketleri -->
+  <g font-size="14" font-weight="600">
+    <rect x="60"  y="262" width="104" height="30" rx="15" fill="#1d4ed8" fill-opacity="0.35" stroke="#60a5fa"/>
+    <text x="112" y="282" text-anchor="middle" fill="#dbeafe">Python 3.10</text>
+    <rect x="174" y="262" width="84"  height="30" rx="15" fill="#16a34a" fill-opacity="0.30" stroke="#4ade80"/>
+    <text x="216" y="282" text-anchor="middle" fill="#dcfce7">OpenCV</text>
+    <rect x="268" y="262" width="104" height="30" rx="15" fill="#0891b2" fill-opacity="0.30" stroke="#22d3ee"/>
+    <text x="320" y="282" text-anchor="middle" fill="#cffafe">MediaPipe</text>
+    <rect x="382" y="262" width="112" height="30" rx="15" fill="#ea580c" fill-opacity="0.30" stroke="#fb923c"/>
+    <text x="438" y="282" text-anchor="middle" fill="#ffedd5">scikit-learn</text>
+    <rect x="504" y="262" width="72"  height="30" rx="15" fill="#dc2626" fill-opacity="0.30" stroke="#f87171"/>
+    <text x="540" y="282" text-anchor="middle" fill="#fee2e2">ESP32</text>
+  </g>
+
+  <!-- Laptop -->
+  <rect x="650" y="100" width="220" height="145" rx="10" fill="#1e293b" stroke="#64748b" stroke-width="3"/>
+  <rect x="662" y="114" width="196" height="120" rx="4" fill="#0f172a"/>
+  <circle cx="760" cy="107" r="3" fill="#22c55e"/>
+  <polygon points="630,245 890,245 910,262 610,262" fill="#334155" stroke="#64748b" stroke-width="2"/>
+
+  <!-- Ekranda el iskeleti (21 nokta) -->
+  <g stroke="#22c55e" stroke-width="3" stroke-linecap="round" fill="none">
+    <polyline points="760,226 742,216 728,203 720,190 714,178"/>
+    <polyline points="760,226 748,194 746,176 745,164 744,153"/>
+    <polyline points="748,194 760,191 772,194 783,200 760,226"/>
+    <polyline points="760,191 760,171 760,158 760,146"/>
+    <polyline points="772,194 774,175 775,164 776,154"/>
+    <polyline points="783,200 787,186 789,177 791,169"/>
+  </g>
+  <g fill="#bbf7d0">
+    <circle cx="760" cy="226" r="3.5"/><circle cx="742" cy="216" r="3"/><circle cx="728" cy="203" r="3"/>
+    <circle cx="720" cy="190" r="3"/><circle cx="714" cy="178" r="3"/><circle cx="748" cy="194" r="3"/>
+    <circle cx="746" cy="176" r="3"/><circle cx="745" cy="164" r="3"/><circle cx="744" cy="153" r="3"/>
+    <circle cx="760" cy="191" r="3"/><circle cx="760" cy="171" r="3"/><circle cx="760" cy="158" r="3"/>
+    <circle cx="760" cy="146" r="3"/><circle cx="772" cy="194" r="3"/><circle cx="774" cy="175" r="3"/>
+    <circle cx="775" cy="164" r="3"/><circle cx="776" cy="154" r="3"/><circle cx="783" cy="200" r="3"/>
+    <circle cx="787" cy="186" r="3"/><circle cx="789" cy="177" r="3"/><circle cx="791" cy="169" r="3"/>
+  </g>
+  <text x="672" y="132" font-size="13" font-weight="700" fill="#ef4444">FREN</text>
+  <text x="848" y="132" font-size="11" text-anchor="end" fill="#94a3b8">30 fps</text>
+
+  <!-- WiFi -->
+  <g fill="none" stroke="#38bdf8" stroke-width="4" stroke-linecap="round">
+    <path d="M915 160 A 22 22 0 0 1 915 196" stroke-opacity="1"/>
+    <path d="M928 146 A 40 40 0 0 1 928 210" stroke-opacity="0.7"/>
+    <path d="M941 132 A 58 58 0 0 1 941 224" stroke-opacity="0.4"/>
+  </g>
+  <text x="945" y="292" font-size="13" text-anchor="middle" fill="#7dd3fc">HTTP · 192.168.4.1</text>
+
+  <!-- Araç (yandan) -->
+  <g>
+    <line x1="1060" y1="150" x2="1060" y2="122" stroke="#94a3b8" stroke-width="3"/>
+    <circle cx="1060" cy="119" r="5" fill="#38bdf8"/>
+    <rect x="1018" y="150" width="84" height="20" rx="4" fill="#111827" stroke="#60a5fa" stroke-width="2"/>
+    <rect x="1026" y="154" width="30" height="12" rx="2" fill="#9ca3af"/>
+    <rect x="975" y="168" width="180" height="44" rx="14" fill="url(#body)" stroke="#92400e" stroke-width="2"/>
+    <rect x="990" y="178" width="70" height="20" rx="4" fill="#16a34a" stroke="#14532d"/>
+    <text x="1025" y="193" font-size="11" font-weight="700" text-anchor="middle" fill="#f0fdf4">4×AA</text>
+    <circle cx="1010" cy="218" r="24" fill="#0b1220" stroke="#94a3b8" stroke-width="7"/>
+    <circle cx="1010" cy="218" r="6" fill="#facc15"/>
+    <circle cx="1125" cy="226" r="14" fill="#0b1220" stroke="#94a3b8" stroke-width="5"/>
+  </g>
+  <g stroke="#fbbf24" stroke-width="3" stroke-linecap="round" stroke-opacity="0.6">
+    <line x1="1168" y1="182" x2="1188" y2="182"/>
+    <line x1="1172" y1="196" x2="1190" y2="196"/>
+  </g>
+</svg>
