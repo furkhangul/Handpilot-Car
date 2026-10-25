@@ -1,0 +1,20 @@
+[
+  {
+    "stage": "head",
+    "epochs_ran": 20,
+    "best_epoch": 12,
+    "best_val_loss": 0.21863403916358948,
+    "train_loss_at_best": 0.02898355945944786,
+    "train_validation_loss_gap": 0.18965047970414162,
+    "final_learning_rate": 0.0010000000474974513
+  },
+  {
+    "stage": "finetune",
+    "epochs_ran": 20,
+    "best_epoch": 19,
+    "best_val_loss": 0.022947506979107857,
+    "train_loss_at_best": 0.007106450852006674,
+    "train_validation_loss_gap": 0.015841056127101183,
+    "final_learning_rate": 2.9999998787388904e-06
+  }
+]
