@@ -1,0 +1,65 @@
+{
+  "seed": 20261024,
+  "people": {
+    "train": [
+      "1234",
+      "2345",
+      "2703",
+      "2857",
+      "5555",
+      "9999",
+      "esma",
+      "furkan",
+      "furkan1"
+    ],
+    "validation": [
+      "4848",
+      "sbl1"
+    ],
+    "test": [
+      "1333",
+      "hzl1"
+    ]
+  },
+  "summary": [
+    {
+      "split": "train",
+      "people": 9,
+      "images": 8497,
+      "image_fraction": 0.6820516936908011,
+      "classes": {
+        "fren": 2291,
+        "sag": 2278,
+        "sol": 2001,
+        "gaz": 1927
+      },
+      "missing_classes": []
+    },
+    {
+      "split": "validation",
+      "people": 2,
+      "images": 2149,
+      "image_fraction": 0.17249959865146894,
+      "classes": {
+        "fren": 600,
+        "sol": 600,
+        "gaz": 549,
+        "sag": 400
+      },
+      "missing_classes": []
+    },
+    {
+      "split": "test",
+      "people": 2,
+      "images": 1812,
+      "image_fraction": 0.14544870765772996,
+      "classes": {
+        "fren": 500,
+        "sol": 463,
+        "sag": 455,
+        "gaz": 394
+      },
+      "missing_classes": []
+    }
+  ]
+}

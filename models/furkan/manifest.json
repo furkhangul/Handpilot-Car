@@ -1,0 +1,39 @@
+{
+  "config": {
+    "zip_path": "/content/drive/MyDrive/archive.zip",
+    "zip_size": 1182994531,
+    "zip_mtime_ns": 1792828941000000000,
+    "seed": 20261024,
+    "image_size": 192,
+    "batch_size": 32,
+    "epochs": 40,
+    "cv_requested": 5,
+    "roi_margin": 0.3,
+    "horizontal_flip": false,
+    "class_order": [
+      "diger",
+      "fren",
+      "gaz",
+      "sag",
+      "sol"
+    ],
+    "models": [
+      "small_cnn",
+      "mobilenet_v3_small"
+    ],
+    "optimizer": "AdamW; Adam fallback",
+    "weight_decay": 0.0001,
+    "early_stopping_patience": 7,
+    "tensorflow": "2.21.0",
+    "mediapipe": "0.10.35"
+  },
+  "config_hash": "f2d18ed71855",
+  "run_dir": "/content/drive/MyDrive/cnn_results/run_f2d18ed71855",
+  "python": "3.13.16",
+  "tensorflow": "2.21.0",
+  "mediapipe": "0.10.35",
+  "numpy": "2.1.3",
+  "opencv": "4.14.0",
+  "pillow": "11.3.0",
+  "created_utc": "2026-10-24T16:30:15.161410+00:00"
+}
