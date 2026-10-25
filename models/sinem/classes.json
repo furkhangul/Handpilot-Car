@@ -1,0 +1,14 @@
+{
+  "classes": [
+    "gaz",
+    "fren",
+    "sol",
+    "sag"
+  ],
+  "mapping": {
+    "gaz": 0,
+    "fren": 1,
+    "sol": 2,
+    "sag": 3
+  }
+}
