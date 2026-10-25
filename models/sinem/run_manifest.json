@@ -1,0 +1,102 @@
+{
+  "status": "complete",
+  "run_dir": "/content/drive/MyDrive/HandPilotCar_MLP_2026-10-21/mlp_results/run_8eeac3405e5c9fe6",
+  "dataset_archive_sha256": "dd3148c70a0383bea9b1297a59cf5fb3c9e1a93f341289fd09570b51226ba043",
+  "feature_version": "handpilot_tasks_wrist_scale_76_v2",
+  "class_order": [
+    "gaz",
+    "fren",
+    "sol",
+    "sag"
+  ],
+  "selected_model": {
+    "feature_set": "extended76",
+    "candidate": "mlp_128_64",
+    "macro_f1_mean": 0.9963885779319505,
+    "macro_f1_std": 0.004612431175100071,
+    "balanced_accuracy_mean": 0.9961849492233942,
+    "gaz_fren_confusions_sum": 1,
+    "config": {
+      "name": "mlp_128_64",
+      "units": [
+        128,
+        64
+      ],
+      "dropout": 0.3,
+      "l2": 0.0001,
+      "lr": 0.001,
+      "weight_decay": 0.0001,
+      "batch_size": 128
+    }
+  },
+  "split": {
+    "dataset_archive_sha256": "dd3148c70a0383bea9b1297a59cf5fb3c9e1a93f341289fd09570b51226ba043",
+    "people": [
+      "1234",
+      "1333",
+      "2345",
+      "2703",
+      "2857",
+      "4848",
+      "5555",
+      "9999",
+      "esma",
+      "furkan",
+      "furkan1",
+      "hzl1",
+      "sbl1"
+    ],
+    "train_people": [
+      "1234",
+      "2703",
+      "4848",
+      "9999",
+      "esma",
+      "furkan",
+      "furkan1",
+      "hzl1",
+      "sbl1"
+    ],
+    "validation_people": [
+      "1333",
+      "2857"
+    ],
+    "test_people": [
+      "2345",
+      "5555"
+    ],
+    "train": {
+      "rows": 8507,
+      "fraction": 0.6828543907529299,
+      "class_counts": {
+        "gaz": 1981,
+        "fren": 2305,
+        "sol": 2077,
+        "sag": 2144
+      }
+    },
+    "validation": {
+      "rows": 1812,
+      "fraction": 0.14544870765772996,
+      "class_counts": {
+        "gaz": 394,
+        "fren": 500,
+        "sol": 463,
+        "sag": 455
+      }
+    },
+    "test": {
+      "rows": 2139,
+      "fraction": 0.17169690158934017,
+      "class_counts": {
+        "gaz": 495,
+        "fren": 586,
+        "sol": 524,
+        "sag": 534
+      }
+    }
+  },
+  "test_metrics_file": "/content/drive/MyDrive/HandPilotCar_MLP_2026-10-21/mlp_results/run_8eeac3405e5c9fe6/final/test_metrics.json",
+  "report_docx": "/content/drive/MyDrive/HandPilotCar_MLP_2026-10-21/mlp_results/run_8eeac3405e5c9fe6/final/MLP_Egitim_Sonuc_Raporu.docx",
+  "completed_at": "2026-10-21T21:27:05.483363+00:00"
+}
