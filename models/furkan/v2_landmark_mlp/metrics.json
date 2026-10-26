@@ -1,0 +1,152 @@
+{
+  "class_order": [
+    "gaz",
+    "fren",
+    "sol",
+    "sag"
+  ],
+  "split_people": {
+    "train": [
+      "1234",
+      "2345",
+      "2703",
+      "2857",
+      "5555",
+      "9999",
+      "esma",
+      "furkan",
+      "furkan1"
+    ],
+    "validation": [
+      "4848",
+      "sbl1"
+    ],
+    "test": [
+      "1333",
+      "hzl1"
+    ]
+  },
+  "epochs_ran": 58,
+  "validation": {
+    "n": 2150,
+    "accuracy": 0.9972093023255814,
+    "balanced_accuracy": 0.9974999999999999,
+    "macro_f1": 0.9974424281856572,
+    "roc_auc_macro_ovr": 0.9999867210410558,
+    "per_class": {
+      "gaz": {
+        "precision": 0.9945750452079566,
+        "recall": 1.0,
+        "f1": 0.9972801450589301,
+        "support": 550
+      },
+      "fren": {
+        "precision": 0.998330550918197,
+        "recall": 0.9966666666666667,
+        "f1": 0.9974979149291076,
+        "support": 600
+      },
+      "sol": {
+        "precision": 0.9966555183946488,
+        "recall": 0.9933333333333333,
+        "f1": 0.994991652754591,
+        "support": 600
+      },
+      "sag": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 400
+      }
+    },
+    "confusion_matrix": [
+      [
+        550,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        598,
+        2,
+        0
+      ],
+      [
+        3,
+        1,
+        596,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        400
+      ]
+    ],
+    "gaz_as_fren": 0,
+    "fren_as_gaz": 0
+  },
+  "test": {
+    "n": 1811,
+    "accuracy": 1.0,
+    "balanced_accuracy": 1.0,
+    "macro_f1": 1.0,
+    "roc_auc_macro_ovr": 1.0,
+    "per_class": {
+      "gaz": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 394
+      },
+      "fren": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 499
+      },
+      "sol": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 463
+      },
+      "sag": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1": 1.0,
+        "support": 455
+      }
+    },
+    "confusion_matrix": [
+      [
+        394,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        499,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        463,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        455
+      ]
+    ],
+    "gaz_as_fren": 0,
+    "fren_as_gaz": 0
+  }
+}
