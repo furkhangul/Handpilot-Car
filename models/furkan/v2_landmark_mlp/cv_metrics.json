@@ -1,0 +1,207 @@
+{
+  "class_order": [
+    "gaz",
+    "fren",
+    "sol",
+    "sag"
+  ],
+  "summary": {
+    "folds": 13,
+    "accuracy_mean": 0.9951084213981072,
+    "accuracy_std": 0.00954233578000784,
+    "accuracy_min": 0.9665551839464883,
+    "accuracy_pooled": 0.9948767211015049,
+    "macro_f1_mean": 0.9937336773481804,
+    "balanced_accuracy_mean": 0.9932741767729186,
+    "recall_pooled": {
+      "gaz": 0.9924137931034482,
+      "fren": 0.9970440437481525,
+      "sol": 0.9902470741222367,
+      "sag": 0.999361634216406
+    },
+    "confusion_matrix_pooled": [
+      [
+        2878,
+        0,
+        13,
+        9
+      ],
+      [
+        4,
+        3373,
+        6,
+        0
+      ],
+      [
+        26,
+        1,
+        3046,
+        3
+      ],
+      [
+        0,
+        1,
+        1,
+        3131
+      ]
+    ]
+  },
+  "folds": [
+    {
+      "test_person": "1234",
+      "validation_people": [
+        "furkan1",
+        "furkan"
+      ],
+      "n": 633,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 51
+    },
+    {
+      "test_person": "1333",
+      "validation_people": [
+        "9999",
+        "5555"
+      ],
+      "n": 612,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 113
+    },
+    {
+      "test_person": "2345",
+      "validation_people": [
+        "1333",
+        "furkan"
+      ],
+      "n": 1187,
+      "accuracy": 0.9983150800336984,
+      "balanced_accuracy": 0.998298827695548,
+      "macro_f1": 0.9983173991836769,
+      "epochs_ran": 59
+    },
+    {
+      "test_person": "2703",
+      "validation_people": [
+        "9999",
+        "esma"
+      ],
+      "n": 897,
+      "accuracy": 0.9665551839464883,
+      "balanced_accuracy": 0.9416553923463471,
+      "macro_f1": 0.9478873019852302,
+      "epochs_ran": 27
+    },
+    {
+      "test_person": "2857",
+      "validation_people": [
+        "furkan1",
+        "1234"
+      ],
+      "n": 1200,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 200
+    },
+    {
+      "test_person": "4848",
+      "validation_people": [
+        "furkan",
+        "2857"
+      ],
+      "n": 950,
+      "accuracy": 0.9936842105263158,
+      "balanced_accuracy": 0.995,
+      "macro_f1": 0.9945103205972772,
+      "epochs_ran": 119
+    },
+    {
+      "test_person": "5555",
+      "validation_people": [
+        "furkan1",
+        "4848"
+      ],
+      "n": 952,
+      "accuracy": 0.9978991596638656,
+      "balanced_accuracy": 0.9976703363384188,
+      "macro_f1": 0.9978408734566502,
+      "epochs_ran": 77
+    },
+    {
+      "test_person": "9999",
+      "validation_people": [
+        "1234",
+        "hzl1"
+      ],
+      "n": 82,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 200
+    },
+    {
+      "test_person": "esma",
+      "validation_people": [
+        "hzl1",
+        "1234"
+      ],
+      "n": 1199,
+      "accuracy": 0.9849874895746455,
+      "balanced_accuracy": 0.985,
+      "macro_f1": 0.985019286577759,
+      "epochs_ran": 187
+    },
+    {
+      "test_person": "furkan",
+      "validation_people": [
+        "2857",
+        "2345"
+      ],
+      "n": 1185,
+      "accuracy": 0.9974683544303797,
+      "balanced_accuracy": 0.9974397416676277,
+      "macro_f1": 0.9974626862273139,
+      "epochs_ran": 67
+    },
+    {
+      "test_person": "furkan1",
+      "validation_people": [
+        "5555",
+        "esma"
+      ],
+      "n": 1196,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 42
+    },
+    {
+      "test_person": "hzl1",
+      "validation_people": [
+        "esma",
+        "sbl1"
+      ],
+      "n": 1199,
+      "accuracy": 1.0,
+      "balanced_accuracy": 1.0,
+      "macro_f1": 1.0,
+      "epochs_ran": 21
+    },
+    {
+      "test_person": "sbl1",
+      "validation_people": [
+        "esma",
+        "2345"
+      ],
+      "n": 1200,
+      "accuracy": 0.9975,
+      "balanced_accuracy": 0.9975,
+      "macro_f1": 0.9974999374984375,
+      "epochs_ran": 25
+    }
+  ]
+}
