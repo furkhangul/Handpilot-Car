@@ -1,0 +1,19 @@
+{
+ "input": "roi",
+ "size": 192,
+ "padding": 0.3,
+ "classes": [
+  "fren",
+  "gaz",
+  "sag",
+  "sol"
+ ],
+ "source": "models/hazal (MobileNetV3Small, 192x192 RGB el ROI)",
+ "input_shape": [
+  192,
+  192,
+  3
+ ],
+ "keras_sha256": "8c080374d7a548682ce7f64b0b15bf9ba2dcca197930c63f99047bce5b59d815",
+ "tflite_max_diff": 0.0
+}
