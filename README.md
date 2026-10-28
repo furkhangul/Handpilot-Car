@@ -115,6 +115,7 @@ pie showData title Haftalara göre ilerleme (6 hafta)
 | **FREN** | ✋ **Açık avuç** | 5 parmak **tamamen açık ve aralıklı**, avuç içi kameraya, parmaklar yukarı. Trafik polisinin "DUR" işareti. | `fren` |
 | **SOL** | ⬅️ **Yumruk, başparmak sola** | 4 parmak yumruk, **başparmak dışarıda ve yatay**, ekranda sola bakar. Başparmak kameraya değil, yana doğrultulur. | `sol` |
 | **SAĞ** | ➡️ **Yumruk, başparmak sağa** | Aynısı, başparmak ekranda sağa bakar. | `sag` |
+| **GERİ** | 👎 **Yumruk, başparmak aşağı** | Aynı şekil, başparmak aşağı bakar. Yalnızca **dururken**, **tutulduğu sürece** yavaş geri (v5.3). | *(sınıf yok, geometriden)* |
 | *(hiçbiri)* | Yarı açık el, 2 parmak, OK, başparmak yukarı, geçişler… | Model bunları **bilinçli olarak** "diğer" diye öğrenir. | `diger` |
 
 > **Bütün hareketler yalnızca SAĞ elle yapılır.** Veri toplamada da sürüşte de sol el kullanılmaz.
@@ -733,7 +734,8 @@ Yön **geometriden** okunur: model `sol` dese bile başparmak sağı gösteriyor
 | Uç nokta | Parametreler | Cevap | Amaç |
 |---|---|---|---|
 | `GET /` | — | `HandPilot-Car OK` | Tarayıcıdan canlılık testi |
-| `GET /cmd` | `d` ∈ {0,1}, `s` ∈ 0–255, `t` ∈ {N,L,R}, `seq` (artan tam sayı) | `{"ok":1,"seq":812}` | Sürüş komutu (heartbeat de budur) |
+| `GET /cmd` | `d` ∈ {1 ileri, -1 geri, 0 ilerleme yok}, `s` ∈ 0–255, `t` ∈ {N,L,R}, `seq` (artan tam sayı). `d=0`, `s>0`, `t=L/R` = **yerinde dönüş** | `{"ok":1,"seq":812}` | Sürüş komutu (heartbeat de budur) |
+| `GET /kumanda` | — | HTML | Telefondan basılı tutmalı test kumandası (laptopsuz motor testi) |
 | `GET /stop` | — | `{"ok":1}` | Anında dur (çıkışta, acilde) |
 | `GET /status` | — | `{"uptime_ms":…, "last_cmd_age_ms":…, "seq":…, "vbat":7.62}` | Teşhis (`vbat` pil ekstrası alınırsa) |
 
@@ -1087,10 +1089,10 @@ gantt
 | D1 | Hareket seti v5'in kabulü (EL_KITABI → V5 güncellemesi) | Kabul; eski `assets/02_el_bolgeleri.svg`, `03_durum_makinesi.svg`, `v3_02_el_haritasi.svg` **geçersiz** sayılır |
 | D2 | Pin değişikliği (PWMA 14→25, PWMB 12→13) + TB6612 için STBY = GPIO23 | Kabul |
 | D3 | Gaz gecikme hedefi 400 ms (frenden ayrı) | Kabul |
-| D4 | Duruyorken ⬅️/➡️ ile yerinde dönüş | Şimdilik yok (güvenlik); zaman kalırsa yavaş pivot |
+| D4 | Duruyorken ⬅️/➡️ ile yerinde dönüş | **Eklendi (v5.3):** yalnızca tutulduğu sürece, `PIVOT_WHEN_STOPPED` ile kapatılabilir |
 | D5 | Hız ekstrası (yumruk yüksekliği → 140/180/220) | Opsiyonel; mandal mantığıyla uyumlu |
 | D6 | v4 "çift yumruk korna" ekstrası | **İptal**: tek el kuralıyla çelişiyor. Yerine klavyede `H` tuşu |
-| D7 | v4 "sol el yukarı = geri vites" | **İptal** (iki el). Gelecek çalışma |
+| D7 | v4 "sol el yukarı = geri vites" | **İptal** (iki el). Yerine tek elle 👎 geri eklendi (v5.3, `REVERSE_ENABLED`) |
 | D8 | HTTP → UDP | Yalnızca ölçülen ağ gecikmesi > 80 ms ise |
 | D9 | Pil göstergesi, engel freni, sürüş kaydı, sesli onay | Pil göstergesi önerilir (`/status`); sürüş kaydı zaten §16'da var |
 
@@ -1129,6 +1131,7 @@ gantt
 | **v5.1** | **2026-10-11** | Yön hareketi değişti: ⬅️ / ➡️ artık **yumruk + başparmak sola/sağa** (işaret parmağı yerine). Bütün hareketler **yalnızca sağ elle**. Gaz kuralına "başparmak açık değil" eklendi, yön kuralı başparmak açısına (nokta 2 → 4) taşındı. `veri_topla.py`: yeni ipuçları, "SADECE SAĞ EL" uyarısı, `S` ile her ekranda sıradaki harekete geçme. |
 
 | **v5.2** | **2026-10-13** | **Görsel README:** banner, hareket kartları, 21 nokta diyagramı, prototip ve bağlantı şeması çizimleri, arayüz taslakları, istatistik grafikleri (`docs/assets/`). Donanım **TB6612FNG + 4×AA Ni-MH**'ye güncellendi (§12, pil eşikleri, sorun giderme, riskler). Yol haritası **6 haftaya** çıkarıldı (§17). Şablonlar (§25) ve **MIT lisansı** (§26) eklendi. Kilitli (🔒) maddelerde değişiklik yok. |
+| **v5.3** | **2026-10-28** | **Araç hareketleri (Furkan onayı):** 👎 yumruk + başparmak aşağı = **geri** (yalnız dururken, tutulduğu sürece, `SPEED_REVERSE` 150); duruyorken ⬅️/➡️ = **yerinde dönüş** (tutulduğu sürece). 🔒 Protokol: `d` artık {1, -1, 0}; `d=0` + `t=L/R` + `s>0` = yerinde dönüş; `/kumanda` test sayfası. 4 modelin TFLite ile ortak kararı (`handpilot/gesture.py`), firmware (`firmware/handpilot_esp32`), `tools/arac_testi.py`. |
 
 ---
 

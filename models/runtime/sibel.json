@@ -1,0 +1,19 @@
+{
+ "input": "roi",
+ "size": 160,
+ "padding": 0.3,
+ "classes": [
+  "fren",
+  "gaz",
+  "sag",
+  "sol"
+ ],
+ "source": "models/sibel zip (MobileNetV3Small, 160x160 RGB el ROI)",
+ "input_shape": [
+  160,
+  160,
+  3
+ ],
+ "keras_sha256": "3362f516b9e9ea762c29e48fdc132ac7503a1794227c90c6a0ae2f90a0e446ed",
+ "tflite_max_diff": 1.9669532775878906e-06
+}
