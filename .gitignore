@@ -19,3 +19,6 @@ __pycache__/
 ~$*
 docx_build/
 pptx_build/
+
+# Arduino derleme çıktısı
+firmware/handpilot_esp32/build/
