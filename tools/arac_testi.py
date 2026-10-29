@@ -22,6 +22,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 import requests
 
 from handpilot import config
+from handpilot.car_client import find_car_url
 
 STEPS = [
     ("ILERI",          1, "N", "iki teker de İLERİ, aynı hızda"),
@@ -35,16 +36,17 @@ STEPS = [
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--url", default=config.CAR_URL)
+    ap.add_argument("--url", default=None, help="boşsa otomatik bulunur")
     ap.add_argument("--sure", type=float, default=1.5, help="her adımın süresi (sn)")
     ap.add_argument("--hiz", type=int, default=config.SPEED_NORMAL)
     a = ap.parse_args()
+    a.url = a.url or find_car_url()
     s = requests.Session()
     try:
         print("Bağlantı:", s.get(a.url, timeout=2).text.strip())
         print("Durum   :", s.get(f"{a.url}/status", timeout=2).text.strip())
     except requests.RequestException as e:
-        sys.exit(f"Araca ulaşılamadı ({a.url}). Laptop 'HandPilot-Car' WiFi'ında mı? {e}")
+        sys.exit(f"Araca ulaşılamadı ({a.url}). Araç ev ağında değilse laptop 'HandPilot-Car' WiFi'ında mı? {e}")
 
     seq = 1
     try:

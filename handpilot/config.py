@@ -46,7 +46,8 @@ PIVOT_WHEN_STOPPED = True        # Duruyorken 👈/👉 = yerinde dönüş (tutu
 SPEED_PIVOT = 150
 
 # ---------- Ağ ----------
-CAR_URL = "http://192.168.4.1"
+CAR_URL = "http://192.168.4.1"   # Aracın kendi ağı (HandPilot-Car)
+CAR_URL_HOME = "http://handpilot.local"   # Araç ev WiFi'ındaysa (önce bu denenir)
 HTTP_TIMEOUT_S = 0.5
 HEARTBEAT_S = 0.3
 MAX_REQ_PER_S = 5

@@ -6,13 +6,29 @@ FAIL_LIMIT ardışık hata -> link_ok = False (controller aracı durdurur, kalk�
 
 from __future__ import annotations
 
+import socket
 import threading
 import time
+from urllib.parse import urlsplit
 
 import requests
 
 from handpilot import config
 from handpilot.controller import DriveCommand
+
+
+def find_car_url() -> str:
+    """Önce ev ağı (handpilot.local), olmazsa aracın kendi ağı. .local adı bir kez IP'ye çevrilir:
+    her istekte mDNS sorgusu gecikme eklemesin."""
+    for url in (config.CAR_URL_HOME, config.CAR_URL):
+        try:
+            ip = socket.gethostbyname(urlsplit(url).hostname)
+            r = requests.get(f"http://{ip}/", timeout=1.0)
+            if r.ok and "HandPilot" in r.text:
+                return f"http://{ip}"
+        except (OSError, requests.RequestException):
+            continue
+    return config.CAR_URL
 
 
 class CarClient:

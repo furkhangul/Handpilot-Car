@@ -1,6 +1,7 @@
 // HandPilot-Car · ESP32 + TB6612FNG firmware (README §11, §12)
 //
-// Açılışta motorlar KAPALI, sonra WiFi erişim noktası açılır (192.168.4.1).
+// Açılışta motorlar KAPALI, sonra WiFi: önce ev ağı (wifi_secrets.h, http://handpilot.local),
+// bulunamazsa kendi erişim noktası açılır (HandPilot-Car, 192.168.4.1).
 //   GET /                          -> "HandPilot-Car OK"
 //   GET /kumanda                   -> telefondan basılı tutmalı test kumandası (laptopsuz)
 //   GET /cmd?d=1&s=180&t=N&seq=1   -> sür
@@ -12,7 +13,14 @@
 
 #include <WiFi.h>
 #include <WebServer.h>
+#include <ESPmDNS.h>
 #include "config.h"
+#if __has_include("wifi_secrets.h")
+#include "wifi_secrets.h"
+#else
+#define HOME_SSID     ""
+#define HOME_PASSWORD ""
+#endif
 
 WebServer server(80);
 unsigned long lastCmdMs = 0;
@@ -152,6 +160,38 @@ document.getElementById('stop').addEventListener('pointerdown',stop);
 document.addEventListener('visibilitychange',stop);
 </script></body></html>)HTML";
 
+// Türkçe İ/ı ve büyük/küçük harf farkını yok sayarak karşılaştırmak için
+String ssidKey(const String& in) {
+  String s = in;
+  s.replace("İ", "I"); s.replace("ı", "I"); s.replace("i", "I");
+  s.toUpperCase();
+  return s;
+}
+
+// Ev ağını tarar, adı eşleşirse bağlanır. Bağlanırsa true.
+bool joinHomeWifi() {
+  String want = HOME_SSID;
+  if (want.length() == 0) return false;
+  WiFi.mode(WIFI_STA);
+  WiFi.setHostname(MDNS_NAME);
+  int n = WiFi.scanNetworks();
+  String found;
+  Serial.printf("WiFi tarama: %d ag\n", n);
+  for (int i = 0; i < n; i++) {
+    Serial.printf("  %s (%d dBm)\n", WiFi.SSID(i).c_str(), WiFi.RSSI(i));
+    if (found.length() == 0 && ssidKey(WiFi.SSID(i)) == ssidKey(want)) found = WiFi.SSID(i);
+  }
+  WiFi.scanDelete();
+  if (found.length() == 0) { Serial.println("Ev agi bulunamadi (2.4 GHz mi?)"); return false; }
+  WiFi.begin(found.c_str(), HOME_PASSWORD);
+  unsigned long t0 = millis();
+  while (WiFi.status() != WL_CONNECTED && millis() - t0 < HOME_TIMEOUT_MS) delay(200);
+  if (WiFi.status() != WL_CONNECTED) { Serial.println("Ev agina baglanilamadi (sifre?)"); return false; }
+  Serial.printf("HOME connected %s  SSID=%s  http://%s.local\n",
+                WiFi.localIP().toString().c_str(), found.c_str(), MDNS_NAME);
+  return true;
+}
+
 void setup() {
   // 1) Önce motorlar kesin kapalı (WiFi'dan ÖNCE)
   pinMode(PIN_STBY, OUTPUT); digitalWrite(PIN_STBY, LOW);
@@ -163,11 +203,15 @@ void setup() {
   Serial.begin(115200);
   delay(200);
 
-  // 2) WiFi erişim noktası
-  WiFi.mode(WIFI_AP);
-  WiFi.softAP(AP_SSID, AP_PASSWORD, 1, 0, 1);  // kanal 1, gizli değil, en fazla 1 istemci
-  WiFi.setSleep(false);                         // Gecikmeyi düşürür
-  Serial.printf("AP started %s  SSID=%s\n", WiFi.softAPIP().toString().c_str(), AP_SSID);
+  // 2) WiFi: önce ev ağı, olmazsa kendi erişim noktası
+  if (!joinHomeWifi()) {
+    WiFi.disconnect(true);
+    WiFi.mode(WIFI_AP);
+    WiFi.softAP(AP_SSID, AP_PASSWORD, 1, 0, 1);  // kanal 1, gizli değil, en fazla 1 istemci
+    Serial.printf("AP started %s  SSID=%s\n", WiFi.softAPIP().toString().c_str(), AP_SSID);
+  }
+  WiFi.setSleep(false);                          // Gecikmeyi düşürür
+  if (MDNS.begin(MDNS_NAME)) MDNS.addService("http", "tcp", 80);
 
   server.on("/", []() { server.send(200, "text/plain", "HandPilot-Car OK"); });
   server.on("/kumanda", []() { server.send_P(200, "text/html", KUMANDA_HTML); });
