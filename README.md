@@ -1199,7 +1199,4 @@ Bu projenin **kaynak kodu ve belgeleri** [MIT Lisansı](LICENSE) ile lisanslanm�
 Kullanılan açık kaynak bileşenler kendi lisanslarına tabidir: OpenCV (Apache 2.0), MediaPipe (Apache 2.0), scikit-learn (BSD-3), NumPy (BSD-3), Requests (Apache 2.0), Arduino-ESP32 çekirdeği (LGPL 2.1).
 
 <div align="center">
-
-*Anlamadığın bölümü numarasıyla gruba sor (ör. "§3.2 neden fren 2 kare?").*
-
 </div>
