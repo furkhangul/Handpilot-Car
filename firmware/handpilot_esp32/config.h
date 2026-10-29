@@ -4,6 +4,9 @@
 // ---------- WiFi erişim noktası ----------
 #define AP_SSID      "HandPilot-Car"
 #define AP_PASSWORD  "handpilot2026"   // En az 8 karakter. Sunumdan önce değiştirin.
+// Ev ağı adı/şifresi wifi_secrets.h içinde (git'e girmez). Bulunamazsa yukarıdaki ağ açılır.
+#define MDNS_NAME        "handpilot"     // Ev ağında http://handpilot.local
+#define HOME_TIMEOUT_MS  10000
 
 // ---------- TB6612FNG pinleri ----------
 #define PIN_PWMA  25   // Sol motor hızı (GPIO14 kullanılmaz: açılışta PWM verir)

@@ -20,7 +20,7 @@ from datetime import datetime
 import cv2
 
 from handpilot import config
-from handpilot.car_client import CarClient
+from handpilot.car_client import CarClient, find_car_url
 from handpilot.controller import Controller, DriveCommand
 
 
@@ -30,7 +30,7 @@ def parse_args():
     ap.add_argument("--keyboard", action="store_true", help="kamerasız klavye modu")
     ap.add_argument("--camera", type=int, default=config.CAMERA_INDEX)
     ap.add_argument("--models", default=",".join(config.MODEL_WEIGHTS), help="virgülle model adları")
-    ap.add_argument("--url", default=config.CAR_URL)
+    ap.add_argument("--url", default=None, help="boşsa otomatik bulunur")
     return ap.parse_args()
 
 
@@ -97,7 +97,7 @@ def keyboard_mode(car: CarClient | None) -> None:
 
 def main() -> None:
     args = parse_args()
-    car = None if args.no_car else CarClient(args.url).start()
+    car = None if args.no_car else CarClient(args.url or find_car_url()).start()
 
     def shutdown(*_):
         if car:

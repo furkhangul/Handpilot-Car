@@ -22,3 +22,6 @@ pptx_build/
 
 # Arduino derleme çıktısı
 firmware/handpilot_esp32/build/
+
+# Ev WiFi şifresi (örnek: firmware/handpilot_esp32/wifi_secrets.example.h)
+firmware/handpilot_esp32/wifi_secrets.h
