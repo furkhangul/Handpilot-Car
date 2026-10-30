@@ -1,0 +1,1 @@
+"""HandPilot-Car laptop uygulaması."""

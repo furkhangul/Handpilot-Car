@@ -1,0 +1,6 @@
+# Sadece tools/export_models.py için (Keras -> TFLite). Model değişince bir kez çalıştırılır.
+-r requirements.txt
+tensorflow==2.21.0
+keras==3.13.2
+scikit-learn==1.6.1
+joblib
