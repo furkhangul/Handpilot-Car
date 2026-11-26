@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" role="img" aria-label="Sağ elin dışı, başparmak sağa açık">
+<defs><linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".55" stop-color="#f5f3ec"/><stop offset="1" stop-color="#cecfc5"/></linearGradient></defs>
+<style>.hand-silhouette{fill:url(#skin);stroke:#252b29;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}.hand-crease{fill:none;stroke:#777e73;stroke-width:2.2;stroke-linecap:round}</style>
+<g><g transform="translate(260 0) scale(-1 1)">
+                  <path class="hand-silhouette" d="M112 279 L111 239 Q98 221 78 212 L31 185 Q16 177 20 166 Q24 156 40 161 L86 177 Q94 181 94 170 L89 133 Q86 112 99 106 Q112 101 119 115 L119 104 Q119 86 133 85 Q147 85 150 104 Q154 87 167 92 Q179 95 179 112 Q186 100 198 107 Q209 114 206 132 L205 189 Q206 221 177 242 L177 279 Z" />
+                  <path class="hand-crease" d="M119 114 L121 143 M150 104 L151 140 M179 113 L180 145 M99 132 Q108 126 116 132 M129 114 Q139 108 146 115 M158 120 Q167 114 175 121 M185 135 Q193 130 200 136 M122 155 Q128 189 125 224 M151 152 Q155 188 151 224 M180 157 Q180 194 173 222 M87 183 Q102 192 110 207 M120 259 L170 259" />
+                  </g></g>
+              </svg>

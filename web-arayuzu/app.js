@@ -13,27 +13,39 @@ const cursorDot = document.querySelector('.cursor-dot');
 const cursorRing = document.querySelector('.cursor-ring');
 const remoteFragments = [...document.querySelectorAll('.remote-fragments i')];
 
-let driveLatched = false;
+let driveDirection = 'idle';
 
 const gestureStates = {
   gas: { gesture: 'GAZ / YUMRUK', state: 'DÜZ İLERLİYOR', confidence: '%96,8' },
   left: { gesture: 'SOL / BAŞPARMAK', state: 'SOLA DÖNÜYOR', confidence: '%94,1' },
   right: { gesture: 'SAĞ / BAŞPARMAK', state: 'SAĞA DÖNÜYOR', confidence: '%95,3' },
-  brake: { gesture: 'FREN / AÇIK AVUÇ', state: 'DURUYOR', confidence: '%98,7' }
+  reverse: { gesture: 'GERİ / AÇIK AVUÇ', state: 'GERİYE GİDİYOR', confidence: '%98,7' }
 };
 
 function setGesture(gesture) {
   if (!labScreen || !gestureStates[gesture]) return;
 
-  if (gesture === 'gas') driveLatched = true;
-  if (gesture === 'brake') driveLatched = false;
+  if (gesture === 'gas') driveDirection = 'forward';
+  if (gesture === 'reverse') driveDirection = 'reverse';
 
+  const handMap = document.querySelector('.hand-map');
+  if (handMap) {
+    handMap.dataset.gesture = gesture;
+    const handLabel = handMap.querySelector('.hand-map__label');
+    if (handLabel) handLabel.textContent = gesture === 'right' ? 'SAĞ EL · ELİN DIŞI' : 'SAĞ EL · AVUÇ İÇİ';
+    const poseNames = { gas: 'kapalı yumruk', reverse: 'açık avuç', left: 'dört parmak kapalı, başparmak sola açık', right: 'dört parmak kapalı, başparmak sağa açık' };
+    handMap.querySelector('title').textContent = `Sağ el — ${poseNames[gesture]}`;
+  }
   const view = gestureStates[gesture];
-  const turningWhileStopped = (gesture === 'left' || gesture === 'right') && !driveLatched;
+  const turning = gesture === 'left' || gesture === 'right';
+  const turningWhileStopped = turning && driveDirection === 'idle';
 
-  labScreen.dataset.state = turningWhileStopped ? 'brake' : gesture;
+  labScreen.dataset.state = turningWhileStopped ? 'idle' : (turning && driveDirection === 'reverse' ? 'reverse' : gesture);
+  labScreen.dataset.steering = gesture === 'left' || gesture === 'right' ? gesture : 'straight';
   detectedGesture.textContent = view.gesture;
-  vehicleState.textContent = turningWhileStopped ? 'DURUYOR · ÖNCE GAZ' : view.state;
+  vehicleState.textContent = turningWhileStopped ? 'DURUYOR · GAZ VEYA GERİ SEÇ'
+    : turning && driveDirection === 'reverse' ? (gesture === 'left' ? 'GERİYE SOLA DÖNÜYOR' : 'GERİYE SAĞA DÖNÜYOR')
+    : view.state;
   confidenceValue.textContent = view.confidence;
 
   gestureButtons.forEach((button) => {
@@ -50,7 +62,7 @@ gestureButtons.forEach((button) => {
 
 document.addEventListener('keydown', (event) => {
   if (['INPUT', 'TEXTAREA'].includes(document.activeElement?.tagName)) return;
-  const shortcuts = { '1': 'gas', '2': 'left', '3': 'right', '4': 'brake' };
+  const shortcuts = { '1': 'gas', '2': 'left', '3': 'right', '4': 'reverse' };
   if (shortcuts[event.key]) setGesture(shortcuts[event.key]);
 });
 
@@ -96,7 +108,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
   if (section) sectionObserver.observe(section);
 });
 
-setTimeout(() => setGesture('brake'), 650);
+// Wait for a user command before moving the vehicle.
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 let scrollTicking = false;
