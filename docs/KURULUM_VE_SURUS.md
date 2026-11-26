@@ -6,13 +6,14 @@ Bu rehber üç adımı anlatır: **(1)** firmware'i ESP32'ye yüklemek, **(2)** 
 
 | El | Araç | Nasıl çalışır |
 |---|---|---|
-| ✊ Yumruk (başparmak üstte) | **İLERİ** | 5 kare onaylanınca kalkar, **mandallıdır**: el değişse de ✋ gelene kadar gider |
-| ⬅️ / ➡️ Yumruk, başparmak sola / sağa | Giderken **kavis** · dururken **yerinde dönüş** | Kavis: iç teker %40. Yerinde dönüş: tekerler zıt yönde, **tuttuğun sürece** |
-| 👎 Yumruk, başparmak aşağı | **GERİ** | Yalnızca dururken, **tuttuğun sürece**, yavaş (150). İleri giderken 👎 aracı geri almaz, 1 sn sonra durdurur |
-| ✋ Açık avuç | **DUR** | Her durumda kazanır (2 kare) |
-| El yok / başka hareket | Güvenli durum | İleri giderken 0,5 sn el yoksa ya da 1 sn belirsizse durur; geri / yerinde dönüşte 2 karede durur |
+| ✊ Yumruk (başparmak üstte) | **İLERİ** | 5 kare onaylanınca kalkar, **mandallıdır**: el değişse de gitmeye devam eder. Geri giderken ✊ ileriye geçirir |
+| ✋ Açık avuç | **GERİ** | 2 kare onaylanınca yavaş (150) geri gider, **mandallıdır**. İleri giderken ✋ geriye geçirir |
+| ⬅️ / ➡️ Yumruk, başparmak sola / sağa | Giderken **kavis** | İleri ve geri giderken kavis (iç teker %40). O anki yönün hareketi (✊ ya da ✋) düze döndürür. Dururken bir şey yapmaz |
+| El yok / başka hareket | **DUR** | 0,5 sn el yoksa ya da 1 sn belirsizse durur |
 
-Durduktan sonra her hareket baştan onaylanır: ileri → dur → geri zinciri kendiliğinden olmaz.
+**Durdurma hareketi yok.** Aracı durdurmak için eli kameradan çek (0,5 sn) ya da klavyede `SPACE`'e bas. WiFi koparsa ESP32 1 sn içinde kendi durur. Durduktan sonra her hareket baştan onaylanır.
+
+> Hareket seti web arayüzüyle (`web-arayuzu/`) aynıdır. Eski sürümde ✋ fren, 👎 geri idi.
 
 ---
 
@@ -132,7 +133,7 @@ Ekranın üstünde 4 modelin oyu (`sinem:gaz reyyan:gaz sibel:gaz hazal:gaz`), a
 1. Araç açık, laptop **HandPilot-Car** ağında.
 2. `python main.py`
 3. Sağ üstte `WiFi OK xx ms` görünmeli.
-4. Önce ✋ açık el (DURUYOR), sonra ✊ yumruk → araç ileri kalkar. ⬅️ / ➡️ (başparmak) ile kavis alır, ✋ ile durur. Dururken 👎 geri, ⬅️ / ➡️ yerinde dönüş.
+4. ✊ yumruk → araç ileri kalkar, ✋ açık avuç → geri gider. ⬅️ / ➡️ (başparmak) ile kavis alır. Durdurmak için eli kameradan çek.
 5. `SPACE` acil durdurur, `Q` çıkar (çıkarken araca `/stop` gider).
 
 Her sürüş `logs/drive_<tarih>.csv` dosyasına kaydedilir (Git'e girmez).
@@ -150,10 +151,9 @@ Her sürüş `logs/drive_<tarih>.csv` dosyasına kaydedilir (Git'e girmez).
 
 MediaPipe her karede **bir kez** çalışır; aynı el noktaları iki MLP'ye, aynı el kırpması iki CNN'e gider. Karar kuralı (`handpilot/gesture.py`):
 
-- **Fren:** 4 modelin ortalaması ≥ 0,60 **ya da** en az 2 model fren diyorsa. Fren her zaman kazanır.
+- **Geri (açık avuç):** modellerde `fren` sınıfı. 4 modelin ortalaması ≥ 0,60 **ya da** en az 2 model bu sınıfı diyorsa. Açık avuç her zaman kazanır.
 - **Gaz:** en az 3 model gaz diyor, onların ortalama güveni ≥ 0,85, **ve** kural: en fazla 1 açık parmak, başparmak kapalı.
 - **Yön:** en az 3 model aynı yön, güvenleri ≥ 0,75, **ve** kural: 4 parmak kapalı, başparmak açık, yataydan ≤ 35°, o tarafı gösteriyor.
-- **Geri:** modellerde sınıfı yok; 4 parmak kapalı, başparmak açık ve aşağıyı gösteriyor (yataydan ≥ 55°).
 - Aksi halde `diger`: önceki komut korunur, 1 sn sürerse araç durur.
 
 Bir modeli çıkarmak: `python main.py --models sinem,reyyan,sibel`. Modeller değişirse:

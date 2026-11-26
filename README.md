@@ -77,9 +77,9 @@
 | | |
 |---|---|
 | **Ne?** | Laptop kamerası eli görür → bilgisayar hareketi tanır → komut WiFi ile ESP32'ye gider → araç hareket eder. |
-| **Nasıl kontrol edilir?** | ✊ **Yumruk = gaz** (mandallı, açık ele kadar sürer) · ✋ **Açık avuç = fren** · ⬅️ / ➡️ **Yumruk + başparmak yana = yön** · **Hepsi yalnızca sağ elle** |
+| **Nasıl kontrol edilir?** | ✊ **Yumruk = ileri** (mandallı) · ✋ **Açık avuç = geri** (mandallı) · ⬅️ / ➡️ **Yumruk + başparmak yana = yön** · **Hepsi yalnızca sağ elle** |
 | **Nasıl tanınır?** | MediaPipe elde 21 nokta bulur → noktalar normalize edilir → **kendi veri setimizle eğitilmiş** küçük bir sınıflandırıcı + geometrik kural kontrolü. |
-| **Güvenlik** | Fren her zaman kazanır. El 0.5 sn kaybolursa durur. Laptop susarsa araç 1 sn sonra kendi durur. |
+| **Güvenlik** | Durdurma hareketi yok: el 0.5 sn kaybolursa ya da hareket 1 sn belirsizse durur. `SPACE` acil durdurur. Laptop susarsa araç 1 sn sonra kendi durur. |
 | **Hedef** | Fren gecikmesi ≤ 300 ms, gaz ↔ fren karışması **0**, 60 sn kesintisiz tur, 10 dk 0 kopma. |
 
 ### Proje durumu
@@ -112,12 +112,13 @@ pie showData title Haftalara göre ilerleme (6 hafta)
 | Komut | Hareket | Nasıl yapılır | Model sınıfı |
 |---|---|---|---|
 | **GAZ** | ✊ **Yumruk** | 4 parmak avuca kapalı, **başparmak parmakların üstünde** (içeride değil). Parmak boğumları kameraya bakar, bilek düz. | `gaz` |
-| **FREN** | ✋ **Açık avuç** | 5 parmak **tamamen açık ve aralıklı**, avuç içi kameraya, parmaklar yukarı. Trafik polisinin "DUR" işareti. | `fren` |
+| **GERİ** | ✋ **Açık avuç** | 5 parmak **tamamen açık ve aralıklı**, avuç içi kameraya, parmaklar yukarı. Sürüşte **geri** demektir (hareket seti v2). | `fren` |
 | **SOL** | ⬅️ **Yumruk, başparmak sola** | 4 parmak yumruk, **başparmak dışarıda ve yatay**, ekranda sola bakar. Başparmak kameraya değil, yana doğrultulur. | `sol` |
 | **SAĞ** | ➡️ **Yumruk, başparmak sağa** | Aynısı, başparmak ekranda sağa bakar. | `sag` |
-| **GERİ** | 👎 **Yumruk, başparmak aşağı** | Aynı şekil, başparmak aşağı bakar. Yalnızca **dururken**, **tutulduğu sürece** yavaş geri (v5.3). | *(sınıf yok, geometriden)* |
 | *(hiçbiri)* | Yarı açık el, 2 parmak, OK, başparmak yukarı, geçişler… | Model bunları **bilinçli olarak** "diğer" diye öğrenir. | `diger` |
 
+> **Hareket seti v2 (Kasım 2026):** açık avuç artık fren değil **geri**dir, 👎 kaldırıldı ve durdurma hareketi yoktur. Güncel kurallar `docs/KURULUM_VE_SURUS.md` ve `web-arayuzu/` içindedir; aşağıdaki tasarım bölümlerinde geçen "fren" ifadeleri ilk sürümü anlatır.
+>
 > **Bütün hareketler yalnızca SAĞ elle yapılır.** Veri toplamada da sürüşte de sol el kullanılmaz.
 >
 > **"Sol" ve "sağ" ekrana göredir.** Görüntü aynalanır (selfie gibi), yani sürücünün kendi solu ekranda da soldur. Aynalama hem veri toplamada hem sürüşte **aynı** olmalıdır (`MIRROR = True`).

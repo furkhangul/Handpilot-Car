@@ -2,11 +2,11 @@
 
 Modeller: sinem (76 özellik MLP), reyyan (63 özellik MLP), sibel (CNN 160), hazal (CNN 192).
 Hepsi TFLite ile çalışır (models/runtime, tools/export_models.py). Karar kuralı:
-  - FREN: ağırlıklı ortalama >= CONF_FREN  VEYA  en az VOTES_FREN model fren diyor  (fren kazanır)
+  - GERİ: açık avuç (modellerde "fren" sınıfı). Ağırlıklı ortalama >= CONF_GERI  VEYA  en az VOTES_GERI
+          model açık avuç diyor (açık avuç kazanır)
   - GAZ : en az VOTES_GAZ model gaz diyor ve onların ortalama güveni >= CONF_GAZ, kural: açık parmak <= 1, başparmak kapalı
   - YÖN : en az VOTES_TURN model aynı yönü diyor ve onların ortalama güveni >= CONF_TURN, kural (README §10.3, v5.1):
           4 parmak kapalı, başparmak açık, başparmak (2 -> 4) yataydan <= TURN_MAX_ANGLE_DEG, x yönü sınıfla aynı
-  - GERİ: modellerde sınıfı yok, geometriden okunur: yumruk + başparmak AŞAĞI (👎)
   - aksi halde "diger" (controller önceki komutu korur, 1 sn sürerse durur)
 """
 
@@ -32,7 +32,7 @@ C = config.CLASSES
 @dataclass(frozen=True)
 class GestureResult:
     hand_present: bool
-    label: str                  # "gaz" | "fren" | "sol" | "sag" | "geri" | "diger" | "yok"
+    label: str                  # "gaz" | "geri" | "sol" | "sag" | "diger" | "yok"
     confidence: float           # Ağırlıklı ortalama olasılık (seçilen sınıf)
     rule_ok: bool
     t: float
@@ -104,15 +104,13 @@ class GestureEnsemble:
             return GestureResult(True, label, p.get(label, float(avg.max())), rule_ok, t,
                                  tuple(avg.tolist()), votes, reason)
 
-        if p["fren"] >= config.CONF_FREN or count["fren"] >= config.VOTES_FREN:
-            return result("fren", True)
+        if p["fren"] >= config.CONF_GERI or count["fren"] >= config.VOTES_GERI:
+            return GestureResult(True, "geri", p["fren"], True, t, tuple(avg.tolist()), votes, "açık avuç")
 
         opened = fingers_open(hand.lm, config.EXT_RATIO)
         fist = sum(opened.values()) == 0                      # 4 parmak kapalı
         thumb = thumb_open(hand.lm, config.EXT_RATIO)
-        angle, dx, dy = thumb_direction(hand.lm, hand.rgb.shape[1] / hand.rgb.shape[0])
-        if config.REVERSE_ENABLED and fist and thumb and dy > 0 and angle >= config.GERI_MIN_ANGLE_DEG:
-            return GestureResult(True, "geri", 1.0 - p["fren"], True, t, tuple(avg.tolist()), votes, "başparmak aşağı")
+        angle, dx, _ = thumb_direction(hand.lm, hand.rgb.shape[1] / hand.rgb.shape[0])
         if best == "gaz":
             rule = sum(opened.values()) <= 1 and not thumb
             if voters_conf("gaz") >= config.CONF_GAZ and count["gaz"] >= config.VOTES_GAZ and rule:

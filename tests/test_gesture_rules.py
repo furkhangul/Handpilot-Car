@@ -2,7 +2,6 @@
 
 import numpy as np
 
-from handpilot import config
 from handpilot.gesture import GestureEnsemble
 from handpilot.landmarks import Hand
 
@@ -63,8 +62,8 @@ def test_model_says_left_but_thumb_points_right():
     assert ensemble(SOL, SOL, SOL, SOL).classify(hand(FIST_THUMB_OUT, RIGHT), 0).label == "diger"
 
 
-def test_thumb_down_is_reverse_whatever_models_say():
-    assert ensemble(SOL, SAG, SOL, GAZ).classify(hand(FIST_THUMB_OUT, DOWN), 0).label == "geri"
+def test_thumb_down_is_nothing():
+    assert ensemble(SOL, SAG, SOL, GAZ).classify(hand(FIST_THUMB_OUT, DOWN), 0).label == "diger"
 
 
 def test_thumb_up_is_nothing():
@@ -74,14 +73,10 @@ def test_thumb_up_is_nothing():
 def test_gas_needs_thumb_closed_and_three_votes():
     assert ensemble(GAZ, GAZ, GAZ, SOL).classify(hand(FIST_THUMB_OVER, UP), 0).label == "gaz"
     assert ensemble(GAZ, GAZ, SOL, SOL).classify(hand(FIST_THUMB_OVER, UP), 0).label != "gaz"
-    # Başparmak dışarıdaysa gaz değil (yön ya da geri ile karışmasın)
+    # Başparmak dışarıdaysa gaz değil (yön ile karışmasın)
     assert ensemble(GAZ, GAZ, GAZ, GAZ).classify(hand(FIST_THUMB_OUT, LEFT), 0).label != "gaz"
 
 
-def test_palm_votes_win():
-    assert ensemble(FREN, FREN, GAZ, GAZ).classify(hand(FIST_THUMB_OUT, DOWN), 0).label == "fren"
-
-
-def test_reverse_can_be_disabled(monkeypatch):
-    monkeypatch.setattr(config, "REVERSE_ENABLED", False)
-    assert ensemble(SOL, SOL, SAG, GAZ).classify(hand(FIST_THUMB_OUT, DOWN), 0).label != "geri"
+def test_open_palm_is_reverse_and_wins():
+    """Modellerin "fren" sınıfı (açık avuç) sürüşte GERİ demektir."""
+    assert ensemble(FREN, FREN, GAZ, GAZ).classify(hand(FIST_THUMB_OUT, DOWN), 0).label == "geri"
