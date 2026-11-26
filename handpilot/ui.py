@@ -51,6 +51,6 @@ def draw(img, hand, res, cmd, fps, link_ok, ping_ms, connections, car_enabled=Tr
     if res.probs:
         for i, (name, p) in enumerate(zip(config.CLASSES, res.probs)):
             y = h - 120 + i * 22
-            _text(img, name.upper(), (14, y + 14), 0.45)
+            _text(img, ("geri" if name == "fren" else name).upper(), (14, y + 14), 0.45)
             cv2.rectangle(img, (70, y), (230, y + 15), (90, 90, 90), 1)
             cv2.rectangle(img, (70, y), (70 + int(160 * p), y + 15), COLORS[name], -1)

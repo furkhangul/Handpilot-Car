@@ -1,11 +1,13 @@
-"""Sürüş durum makinesi (README §3): onay sayaçları, gaz mandalı, zaman aşımları.
+"""Sürüş durum makinesi (README §3): onay sayaçları, yön mandalı, zaman aşımları.
 
-Dört hareket modu:
+Hareket modları (hareket seti v2, web arayüzüyle aynı):
     DURUYOR   motorlar kapalı
-    ILERI     ✊ 5 kare -> MANDALLI ileri; giderken ⬅️/➡️ (başparmak) kavis, ✊ düz; ✋ ile durur
-    GERI      duruyorken 👎 (yumruk + başparmak aşağı) 5 kare -> yavaş geri, YALNIZCA tutulduğu sürece
-    YERINDE   duruyorken ⬅️/➡️ 3 kare -> yerinde dönüş, YALNIZCA tutulduğu sürece
-✋ açık el (2 kare) her moddan durdurur. Tutma modlarında başka bir şey 2 kare görülürse durur.
+    ILERI     ✊ 5 kare -> MANDALLI ileri
+    GERI      ✋ açık avuç 2 kare -> MANDALLI yavaş geri
+    YERINDE   (PIVOT_WHEN_STOPPED açıksa) duruyorken ⬅️/➡️ 3 kare -> yerinde dönüş, YALNIZCA tutulduğu sürece
+Giderken ⬅️/➡️ (başparmak) kavis çizer; o anki yönün hareketi (✊ ya da ✋) düze döndürür.
+Giderken ✊ ileriye, ✋ geriye geçirir. Durdurma hareketi yok: el 0,5 sn görünmezse, hareket 1 sn
+belirsiz kalırsa ya da bağlantı koparsa araç durur. Klavyede SPACE acil durdurur.
 
 Saf mantık: kamera, ağ, MediaPipe yok. Zaman dışarıdan gelir (r.t), bu yüzden test edilebilir.
 """
@@ -37,7 +39,17 @@ class DriveCommand:
 
 
 STOP = DriveCommand(0, 0, "N", "init")
-TURN_OF = {"sol": "L", "sag": "R", "gaz": "N"}
+TURN_OF = {"sol": "L", "sag": "R"}
+DIR_OF = {"gaz": 1, "geri": -1}
+REASON_OF = {1: "fist_confirmed", -1: "palm_reverse"}
+
+
+def _frames(label: str) -> int:
+    return config.FRAMES_GAZ if label == "gaz" else config.FRAMES_GERI
+
+
+def _speed(d: int) -> int:
+    return config.SPEED_NORMAL if d == 1 else config.SPEED_REVERSE
 
 
 class Controller:
@@ -60,7 +72,7 @@ class Controller:
 
     def _stop(self, reason: str) -> DriveCommand:
         self._unknown_since = None
-        self._streak = 0  # Durduktan sonra her hareket baştan onaylanır (ileri -> dur -> geri zinciri olmaz)
+        self._streak = 0  # Durduktan sonra her hareket baştan onaylanır
         return self._set(0, 0, "N", reason)
 
     def update(self, r, link_ok: bool = True) -> DriveCommand:
@@ -76,14 +88,7 @@ class Controller:
         if r.label != "yok":
             self._last_hand_t = r.t
 
-        # 1) Fren her zaman ve her modda kazanır
-        if r.label == "fren":
-            if self._streak >= config.FRAMES_FREN and self.driving:
-                return self._stop("palm")
-            if not self._held:
-                return self.cmd
-
-        # 2) Tutma modları (geri, yerinde dönüş): bırakılınca dur
+        # 1) Tutma modu (yerinde dönüş): bırakılınca dur
         if self._held:
             if r.label == self._held:
                 self._miss = 0
@@ -93,32 +98,41 @@ class Controller:
                 return self._stop("released")
             return self.cmd
 
-        # 3) El kaybı
+        # 2) El kaybı
         if r.label == "yok":
             if self._last_hand_t is None or r.t - self._last_hand_t >= config.HAND_LOST_STOP_S:
                 return self._stop("hand_lost") if self.driving else self.cmd
             return self.cmd
 
-        # 4) İleri giderken
-        if self.cmd.d == 1 and self.driving:
-            if r.label not in TURN_OF:  # diger, geri: belirsiz say
-                if self._unknown_since is None:
-                    self._unknown_since = r.t
-                if r.t - self._unknown_since >= config.UNKNOWN_STOP_S:
-                    return self._stop("unknown_timeout")
+        # 3) Giderken (ileri ya da geri)
+        if self.driving:
+            if r.label in DIR_OF:
+                self._unknown_since = None
+                d = DIR_OF[r.label]
+                if d != self.cmd.d:  # ✊ <-> ✋: yön değiştir
+                    if self._streak >= _frames(r.label):
+                        return self._set(d, _speed(d), "N", REASON_OF[d])
+                    return self.cmd
+                if self._streak >= config.FRAMES_TURN and self.cmd.turn != "N":
+                    return self._set(d, _speed(d), "N", "straight")
                 return self.cmd
-            self._unknown_since = None
-            if self._streak >= config.FRAMES_TURN and TURN_OF[r.label] != self.cmd.turn:
-                return self._set(1, config.SPEED_NORMAL, TURN_OF[r.label], f"turn_{r.label}")
+            if r.label in TURN_OF:
+                self._unknown_since = None
+                if self._streak >= config.FRAMES_TURN and TURN_OF[r.label] != self.cmd.turn:
+                    return self._set(self.cmd.d, _speed(self.cmd.d), TURN_OF[r.label], f"turn_{r.label}")
+                return self.cmd
+            if self._unknown_since is None:  # diger: belirsiz say
+                self._unknown_since = r.t
+            if r.t - self._unknown_since >= config.UNKNOWN_STOP_S:
+                return self._stop("unknown_timeout")
             return self.cmd
 
-        # 5) Duruyorken: kalkış, geri, yerinde dönüş
+        # 4) Duruyorken: ileri, geri, yerinde dönüş
         self._unknown_since = None
-        if r.label == "gaz" and self._streak >= config.FRAMES_GAZ:
-            return self._set(1, config.SPEED_NORMAL, "N", "fist_confirmed")
-        if r.label == "geri" and config.REVERSE_ENABLED and self._streak >= config.FRAMES_GERI:
-            return self._set(-1, config.SPEED_REVERSE, "N", "reverse", held="geri")
-        if r.label in ("sol", "sag") and config.PIVOT_WHEN_STOPPED and self._streak >= config.FRAMES_PIVOT:
+        if r.label in DIR_OF and self._streak >= _frames(r.label):
+            d = DIR_OF[r.label]
+            return self._set(d, _speed(d), "N", REASON_OF[d])
+        if r.label in TURN_OF and config.PIVOT_WHEN_STOPPED and self._streak >= config.FRAMES_PIVOT:
             return self._set(0, config.SPEED_PIVOT, TURN_OF[r.label], f"pivot_{r.label}", held=r.label)
         return self.cmd
 

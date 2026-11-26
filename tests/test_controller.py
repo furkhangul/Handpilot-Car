@@ -37,16 +37,54 @@ def test_four_fists_and_other_no_start():
     assert not cmd.drive
 
 
-def test_two_palms_stop():
+def reversing_ctrl():
+    c = Controller()
+    cmd, t = feed(c, ["geri"] * config.FRAMES_GERI)
+    assert cmd.d == -1
+    return c, t
+
+
+def test_two_palms_reverse_from_stop():
+    c = Controller()
+    cmd, t = feed(c, ["geri"] * (config.FRAMES_GERI - 1))
+    assert not cmd.drive
+    cmd, _ = feed(c, ["geri"], t)
+    assert cmd.d == -1 and cmd.speed == config.SPEED_REVERSE and cmd.mode == "GERI" and cmd.reason == "palm_reverse"
+
+
+def test_palm_while_forward_switches_to_reverse():
     c, t = driving_ctrl()
-    cmd, _ = feed(c, ["fren"], t)
-    assert cmd.drive
-    cmd, _ = feed(c, ["fren"], t + DT)
-    assert not cmd.drive and cmd.reason == "palm"
+    cmd, t = feed(c, ["geri"] * (config.FRAMES_GERI - 1), t)
+    assert cmd.d == 1
+    cmd, _ = feed(c, ["geri"], t)
+    assert cmd.d == -1 and cmd.speed == config.SPEED_REVERSE
 
 
-def test_turn_while_stopped_does_nothing_when_pivot_off(monkeypatch):
-    monkeypatch.setattr(config, "PIVOT_WHEN_STOPPED", False)
+def test_fist_while_reversing_switches_to_forward():
+    c, t = reversing_ctrl()
+    cmd, t = feed(c, ["gaz"] * (config.FRAMES_GAZ - 1), t)
+    assert cmd.d == -1
+    cmd, _ = feed(c, ["gaz"], t)
+    assert cmd.d == 1 and cmd.speed == config.SPEED_NORMAL
+
+
+def test_reverse_latched_and_steers():
+    c, t = reversing_ctrl()
+    cmd, t = feed(c, ["sol"] * config.FRAMES_TURN, t)  # Avucu bırakınca da geri devam eder
+    assert cmd.d == -1 and cmd.turn == "L"
+    cmd, t = feed(c, ["sag"] * config.FRAMES_TURN, t)
+    assert cmd.d == -1 and cmd.turn == "R"
+    cmd, _ = feed(c, ["geri"] * config.FRAMES_TURN, t)
+    assert cmd.d == -1 and cmd.turn == "N"
+
+
+def test_reverse_stops_when_hand_lost():
+    c, t = reversing_ctrl()
+    cmd = c.update(GestureResult(False, "yok", 0, False, t - DT + 0.51))
+    assert not cmd.drive and cmd.reason == "hand_lost"
+
+
+def test_turn_while_stopped_does_nothing():
     c = Controller()
     cmd, _ = feed(c, ["sol"] * 20)
     assert not cmd.drive
@@ -82,8 +120,9 @@ def test_unknown_one_second_stops():
 
 def test_latch_released_after_stop():
     c, t = driving_ctrl()
-    cmd, t = feed(c, ["fren"] * 2, t)
+    cmd = c.update(GestureResult(False, "yok", 0, False, t + 0.6))
     assert not cmd.drive
+    t += 0.6
     cmd, t = feed(c, ["diger"] * 10, t)  # Belirsiz hareket aracı kaldırmaz
     assert not cmd.drive
     cmd, _ = feed(c, ["gaz"] * config.FRAMES_GAZ, t)
@@ -104,46 +143,10 @@ def test_link_lost_stops_and_blocks_start():
     assert not cmd.drive
 
 
-# ---------- Geri ve yerinde dönüş ----------
+# ---------- Yerinde dönüş (PIVOT_WHEN_STOPPED açıksa) ----------
 
-def test_reverse_only_while_held():
-    c = Controller()
-    cmd, t = feed(c, ["geri"] * (config.FRAMES_GERI - 1))
-    assert not cmd.drive
-    cmd, t = feed(c, ["geri"], t)
-    assert cmd.d == -1 and cmd.speed == config.SPEED_REVERSE and cmd.mode == "GERI"
-    cmd, t = feed(c, ["geri"] * 30, t)
-    assert cmd.d == -1
-    cmd, t = feed(c, ["diger"], t)              # Tek kare kayma: devam
-    assert cmd.d == -1
-    cmd, _ = feed(c, ["diger"] * config.HELD_RELEASE_FRAMES, t)
-    assert not cmd.drive and cmd.reason == "released"
-
-
-def test_reverse_stops_when_hand_lost_or_palm():
-    c = Controller()
-    cmd, t = feed(c, ["geri"] * config.FRAMES_GERI)
-    cmd, _ = feed(c, ["yok"] * config.HELD_RELEASE_FRAMES, t)
-    assert not cmd.drive
-    c = Controller()
-    cmd, t = feed(c, ["geri"] * config.FRAMES_GERI)
-    cmd, _ = feed(c, ["fren"] * config.FRAMES_FREN, t)
-    assert not cmd.drive
-
-
-def test_no_reverse_while_driving_forward():
-    c, t = driving_ctrl()
-    cmd, t = feed(c, ["geri"] * 10, t)            # İleriden doğrudan geriye geçilmez
-    assert cmd.d == 1
-    cmd, t = feed(c, ["geri"] * 21, t)            # 1 sn belirsiz -> dur
-    assert not cmd.drive and cmd.reason == "unknown_timeout"
-    cmd, t = feed(c, ["geri"] * (config.FRAMES_GERI - 1), t)  # Durduktan sonra baştan onay gerekir
-    assert not cmd.drive
-    cmd, _ = feed(c, ["geri"], t)
-    assert cmd.d == -1
-
-
-def test_pivot_when_stopped_while_held():
+def test_pivot_when_stopped_while_held(monkeypatch):
+    monkeypatch.setattr(config, "PIVOT_WHEN_STOPPED", True)
     c = Controller()
     cmd, t = feed(c, ["sol"] * config.FRAMES_PIVOT)
     assert cmd.mode == "YERINDE" and cmd.turn == "L" and cmd.d == 0
@@ -153,7 +156,8 @@ def test_pivot_when_stopped_while_held():
     assert not cmd.drive
 
 
-def test_gas_after_pivot_needs_full_confirmation():
+def test_gas_after_pivot_needs_full_confirmation(monkeypatch):
+    monkeypatch.setattr(config, "PIVOT_WHEN_STOPPED", True)
     c = Controller()
     cmd, t = feed(c, ["sag"] * config.FRAMES_PIVOT)
     cmd, t = feed(c, ["gaz"] * config.HELD_RELEASE_FRAMES, t)

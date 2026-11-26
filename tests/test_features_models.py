@@ -56,7 +56,7 @@ def test_all_models_load_and_output_probabilities():
         p = m.predict(hand)
         assert p.shape == (4,) and abs(float(p.sum()) - 1) < 1e-3
     res = ens.classify(hand, 0.0)
-    assert res.label in ("gaz", "fren", "sol", "sag", "diger")
+    assert res.label in ("gaz", "geri", "sol", "sag", "diger")
     assert len(res.votes) == 4
 
 
