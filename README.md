@@ -14,7 +14,7 @@
 ![Ekip](https://img.shields.io/badge/ekip-8%20kişi-38BDF8)
 ![Lisans](https://img.shields.io/badge/lisans-MIT-blue)
 
-[Hareketler](#2-hareket-seti-v5-) · [Mimari](#4-sistem-mimarisi) · [Veri seti](#9-veri-seti) · [Donanım](#12-araç-tarafı-firmware-ve-donanım) · [Kurulum](#14-kurulum-ve-çalıştırma) · [İstatistikler](#24-sayılarla-handpilot-car) · [Şablonlar](#25-şablonlar) · [Lisans](#26-lisans)
+[Hareketler](#2-hareket-seti-v5-) · [Web arayüzü](#web-arayüzü) · [Mimari](#4-sistem-mimarisi) · [Veri seti](#9-veri-seti) · [Donanım](#12-araç-tarafı-firmware-ve-donanım) · [Kurulum](#14-kurulum-ve-çalıştırma) · [İstatistikler](#24-sayılarla-handpilot-car) · [Şablonlar](#25-şablonlar) · [Lisans](#26-lisans)
 
 </div>
 
@@ -38,6 +38,42 @@
 
 > [!NOTE]
 > Bu sayfadaki çizimler ve arayüz görselleri **konsept / taslaktır**. Ekip tarafından üretildi, ölçekli değildir. Gerçek araç fotoğrafları ve ölçüm grafikleri ilgili hafta bitince `docs/assets/` klasörüne eklenir. Grafiklerdeki sayılar **hedef ve tahmindir**, ölçüm değildir.
+
+### Web arayüzü
+
+Projeyi tanıtan statik web sitesi [`web-arayuzu/`](web-arayuzu/) klasöründedir. Kurulum gerekmez; klasörde `python3 -m http.server 4173` çalıştırıp **http://localhost:4173** adresini açmak yeterlidir (Windows: `py -m http.server 4173`, ya da `baslat.command` / `baslat.bat`). Ayrıntılar: [`web-arayuzu/README.md`](web-arayuzu/README.md).
+
+<img src="docs/assets/web/web_hero.jpg" alt="Web arayüzü giriş ekranı: Kumanda yok" width="100%">
+<sub><b>Giriş ekranı</b> · "Kumanda yok." Sayfa kaydırıldıkça kumanda parçalanır.</sub>
+
+**Canlı kontrol simülasyonu.** Butonlarla ya da klavyede `1` gaz, `2` sol, `3` sağ, `4` geri tuşlarıyla hareket seçilir; el iskeleti, araç ve güven değeri buna göre değişir. Dururken sol/sağ seçilirse araç kımıldamaz, önce gaz ya da geri seçilmelidir.
+
+<table>
+<tr>
+<td width="33%"><img src="docs/assets/web/web_lab_gas.png" alt="Simülasyon: gaz, düz ilerliyor"><br><sub><b>✊ Gaz</b> · düz ilerliyor</sub></td>
+<td width="33%"><img src="docs/assets/web/web_lab_left.png" alt="Simülasyon: sol, sola dönüyor"><br><sub><b>⬅️ Sol</b> · sola dönüyor</sub></td>
+<td width="33%"><img src="docs/assets/web/web_lab_reverse.png" alt="Simülasyon: geri, geriye gidiyor"><br><sub><b>✋ Geri</b> · geriye gidiyor</sub></td>
+</tr>
+</table>
+
+<table>
+<tr>
+<td width="50%"><img src="docs/assets/web/web_gestures.png" alt="Hareket sözlüğü: gaz, geri, sol, sağ"><br><sub><b>Hareket sözlüğü</b> · dört hareket, onay kare sayıları ve güven eşikleri</sub></td>
+<td width="50%"><img src="docs/assets/web/web_system.png" alt="Sistem mimarisi: kamera, MediaPipe, normalize, MLP + kural"><br><sub><b>Sistem mimarisi</b> · kameradan motor sürücüsüne akış</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="docs/assets/web/web_model.png" alt="Model raporu: macro F1 99,64, veri dağılımı"><br><sub><b>Model raporu</b> · macro F1, sınıf başına örnek sayısı, ağ ayarları</sub></td>
+<td width="50%"><img src="docs/assets/web/web_safety.png" alt="Güvenlik: şüphedeysen dur"><br><sub><b>Güvenlik</b> · geri sürüş, el kaybı ve bağlantı kopması</sub></td>
+</tr>
+</table>
+
+<img src="docs/assets/web/web_mobile.jpg" alt="Web arayüzünün telefon görünümü" width="260" align="right">
+
+**Bölümler:** Genel bakış · Canlı kontrol · Hareket seti · Mimari · Model raporu · Güvenlik. Site telefonda da çalışır (sağdaki görünüm, 390 px genişlik).
+
+Düzenlenecek dosyalar: içerik `index.html`, tasarım `styles.css`, simülasyon ve animasyonlar `app.js`, görseller `assets/`.
+
+<br clear="right">
 
 ---
 

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 300" role="img" aria-label="Sağ el, avuç tarafından görülen kapalı yumruk">
+<defs><linearGradient id="skin" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffffff"/><stop offset=".55" stop-color="#f5f3ec"/><stop offset="1" stop-color="#cecfc5"/></linearGradient></defs>
+<style>.hand-silhouette{fill:url(#skin);stroke:#252b29;stroke-width:2.8;stroke-linecap:round;stroke-linejoin:round}.hand-crease{fill:none;stroke:#777e73;stroke-width:2.2;stroke-linecap:round}</style>
+<g>
+                  <path class="hand-silhouette" d="M99 279 L98 244 Q77 228 73 204 L69 151 Q67 130 81 123 Q91 119 99 129 L99 116 C99 95 124 92 129 112 C135 91 158 98 158 118 C168 102 190 111 189 132 L194 181 Q197 222 164 247 L164 279 Z" />
+                  <path class="hand-crease" d="M99 132 L101 168 Q113 182 128 169 L129 119 M129 169 Q146 181 158 167 L158 124 M158 167 Q175 180 188 163 M83 198 Q115 226 157 212 M108 258 L157 258" />
+                  <path class="hand-silhouette hand-thumb" d="M79 214 Q62 198 68 176 Q71 164 83 164 Q91 163 102 170 L144 186 Q156 191 151 202 Q147 212 135 209 L100 198 Q95 211 99 220" />
+                  <path class="hand-crease" d="M134 187 Q143 187 149 194 L146 203 Q138 205 132 200Z M78 190 Q83 195 89 196" /></g>
+                </svg>

@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="HandPilot Car — el hareketlerini gerçek zamanlı araç komutlarına dönüştüren yapay zekâ projesi." />
+    <meta name="theme-color" content="#d9ff43" />
+    <title>HandPilot Car — Kumanda Yok, Elin Direksiyon</title>
+    <link rel="icon" type="image/svg+xml" href="./assets/brand/favicon.svg?v=8" />
+    <link rel="stylesheet" href="./styles.css?v=27" />
+    <script src="./app.js?v=10" defer></script>
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">İçeriğe geç</a>
+
+    <div class="page-loader" aria-hidden="true">
+      <div class="page-loader__mark"><img src="./assets/brand/handpilot-mark-light.svg?v=8" alt="HandPilot" width="64" height="64" /></div>
+      <p>HAREKET SİSTEMİ BAŞLATILIYOR</p>
+      <div class="page-loader__bar"><i></i></div>
+    </div>
+    <div class="scroll-meter" aria-hidden="true"><i></i></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <div class="announcement" aria-label="Proje özeti">
+      <div class="announcement__track">
+        <span>EL HAREKETİNDEN ARAÇ KOMUTUNA</span><i></i>
+        <span>4 HAREKET · 76 ÖZELLİK · GERÇEK ZAMANLI</span><i></i>
+        <span>KUMANDA YOK. ELİN DİREKSİYON.</span><i></i>
+        <span aria-hidden="true">EL HAREKETİNDEN ARAÇ KOMUTUNA</span><i aria-hidden="true"></i>
+        <span aria-hidden="true">4 HAREKET · 76 ÖZELLİK · GERÇEK ZAMANLI</span><i aria-hidden="true"></i>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="HandPilot ana sayfa">
+        <span class="brand__mark"><img src="./assets/brand/handpilot-mark.svg?v=8" alt="" width="64" height="64" /></span>
+        <span class="brand__name"><strong>hand<span>pilot</span></strong><small>CAR CONTROL</small></span>
+      </a>
+      <nav class="main-nav" aria-label="Ana menü">
+        <a href="#experience">Deneyim</a>
+        <a href="#gestures">Hareketler</a>
+        <a href="#system">Sistem</a>
+        <a href="#model">Model</a>
+      </nav>
+      <a class="header-cta" href="#experience">Canlı demoyu dene</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span><span></span><span class="sr-only">Menüyü aç</span>
+      </button>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobil menü">
+        <a href="#experience">Deneyim</a>
+        <a href="#gestures">Hareketler</a>
+        <a href="#system">Sistem</a>
+        <a href="#model">Model</a>
+      </nav>
+    </header>
+
+    <div class="filter-rail" aria-label="Sayfa bölümleri">
+      <a class="filter-chip is-active" href="#top">Genel bakış</a>
+      <a class="filter-chip" href="#experience">Canlı kontrol</a>
+      <a class="filter-chip" href="#gestures">Hareket seti</a>
+      <a class="filter-chip" href="#system">Mimari</a>
+      <a class="filter-chip" href="#model">Model raporu</a>
+      <a class="filter-chip" href="#safety">Güvenlik</a>
+      <span class="filter-count" aria-label="HandPilot"><img src="./assets/brand/handpilot-mark-light.svg?v=8" alt="" width="32" height="32" /><span>handpilot</span></span>
+    </div>
+
+    <main id="main">
+      <section class="hero-v2" aria-labelledby="hero-title">
+        <div class="hero-v2__sticky">
+          <div class="hero-v2__contours" aria-hidden="true">
+            <svg viewBox="0 0 1440 900" preserveAspectRatio="none">
+              <path d="M-80 180C190 28 292 302 526 118s412-94 614 68 328-6 420-92" />
+              <path d="M-110 284C120 112 296 402 546 210s430-78 602 102 298 2 388-54" />
+              <path d="M-140 402C96 212 298 510 574 320s408-48 574 138 288 6 382-32" />
+              <path d="M-120 542C116 344 320 634 590 454s394-48 554 130 278 36 392 0" />
+              <path d="M-90 684C166 478 350 748 610 594s378-34 528 112 270 50 410 18" />
+            </svg>
+          </div>
+
+          <div class="hero-v2__topline">
+            <p>YAPAY ZEKÂ DESTEKLİ HAREKET KONTROLÜ</p>
+          </div>
+
+          <h1 id="hero-title" class="hero-v2__title" aria-label="Kumanda yok">
+            <span class="hero-v2__word hero-v2__word--left">KUMANDA</span>
+            <span class="hero-v2__word hero-v2__word--right">YOK<span>.</span></span>
+          </h1>
+
+          <div class="hero-v2__object remote-stage" aria-hidden="true">
+            <div class="hero-v2__halo"></div>
+            <div class="remote-piece remote-piece--left">
+              <div class="remote-control">
+                <div class="remote-top"><b><img src="./assets/brand/handpilot-mark-light.svg?v=8" alt="HandPilot" width="64" height="64" /></b><i></i><span>LINK</span></div>
+                <div class="remote-screen"><small>HANDPILOT</small><strong>DRIVE</strong><span>READY / 01</span></div>
+                <div class="remote-sticks"><i><b></b></i><i><b></b></i></div>
+                <div class="remote-dpad"><i></i><i></i></div>
+                <div class="remote-buttons"><i></i><i></i><i></i><i></i></div>
+                <div class="remote-grip remote-grip--left"></div><div class="remote-grip remote-grip--right"></div>
+                <div class="remote-footer"><span>2.4 GHZ</span><span>CTRL / 01</span></div>
+              </div>
+            </div>
+            <div class="remote-piece remote-piece--right">
+              <div class="remote-control">
+                <div class="remote-top"><b><img src="./assets/brand/handpilot-mark-light.svg?v=8" alt="HandPilot" width="64" height="64" /></b><i></i><span>LINK</span></div>
+                <div class="remote-screen"><small>HANDPILOT</small><strong>DRIVE</strong><span>READY / 01</span></div>
+                <div class="remote-sticks"><i><b></b></i><i><b></b></i></div>
+                <div class="remote-dpad"><i></i><i></i></div>
+                <div class="remote-buttons"><i></i><i></i><i></i><i></i></div>
+                <div class="remote-grip remote-grip--left"></div><div class="remote-grip remote-grip--right"></div>
+                <div class="remote-footer"><span>2.4 GHZ</span><span>CTRL / 01</span></div>
+              </div>
+            </div>
+            <svg class="remote-crack" viewBox="0 0 80 520" preserveAspectRatio="none">
+              <path d="M43 0L31 92L52 148L29 211L48 270L25 332L45 398L34 520" />
+            </svg>
+            <div class="remote-fragments"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="hero-v2__reticle"><i></i><i></i><i></i><i></i></div>
+          </div>
+
+          <div class="hero-v2__meta hero-v2__meta--left">
+            <span>FİZİKSEL KUMANDA</span>
+            <strong>DEVREDEN ÇIKAR</strong>
+          </div>
+          <div class="hero-v2__meta hero-v2__meta--right">
+            <span>21 EL NOKTASI</span>
+            <strong>KONTROL DEVAM EDER</strong>
+          </div>
+
+          <div class="hero-v2__copy">
+            <p>Laptop kamerası elini görür. Model hareketini tanır. ESP32 komutu alır. Araç, tek bir kumandaya dokunmadan harekete geçer.</p>
+            <a class="hero-v2__link" href="#experience">Kontrolü dene</a>
+          </div>
+
+          <div class="hero-v2__scroll" aria-hidden="true"><i></i><span>KAYDIR</span></div>
+          <div class="hero-v2__shutter" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="hareketten-komuta" class="signal-bridge is-visible" aria-label="El hareketinden araç komutuna dönüşüm">
+        <article class="signal-bridge__panel signal-bridge__panel--human">
+          <span>GİRDİ / 01</span>
+          <div class="signal-bridge__glyph">✋</div>
+          <h2>İNSAN<br />HAREKETİ</h2>
+          <p>Doğal, sezgisel ve temassız.</p>
+        </article>
+        <div class="signal-bridge__core" aria-hidden="true">
+          <i></i><i></i><i></i>
+          <svg class="signal-bridge__logo" width="64" height="64" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none"><title>HandPilot — H ve araç</title><path d="M12 15Q12 11 16 11H22V53H16Q12 53 12 49ZM42 11H48Q52 11 52 15V49Q52 53 48 53H42Z" fill="#ffffff"/><path d="M20 32H24V38H20ZM40 32H44V38H40Z" fill="#ffffff"/><path d="M24 30L26 25Q27 23 29 23H35Q37 23 38 25L40 30L41 32V39Q41 41 39 41H25Q23 41 23 39V32Z" fill="#d9ff43"/><path d="M28 26H36L38 31H26Z" fill="#172017"/><path d="M26 34H29M35 34H38" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/><path d="M29 38H35" stroke="#172017" stroke-width="1.5" stroke-linecap="round"/><path d="M24 40V43H27V41M37 41V43H40V40" fill="#ffffff"/></svg>
+        </div>
+        <article class="signal-bridge__panel signal-bridge__panel--machine">
+          <span>ÇIKTI / 02</span>
+          <div class="signal-bridge__glyph">●</div>
+          <h2>MAKİNE<br />REFLEKSİ</h2>
+          <p>Hızlı, ölçülebilir ve güvenli.</p>
+        </article>
+      </section>
+
+      <section class="experience section-pad" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">ETKİLEŞİMLİ DENEYİM</p>
+          <h2 id="experience-title">Elini seç.<br />Aracı yönet.</h2>
+          <p>Aşağıdaki hareketleri kullanarak kontrol mantığını deneyimle. Bu demo, ileri ve geri sürüşü ve her iki yöndeki dönüşleri görselleştirir.</p>
+        </div>
+
+        <div class="control-lab reveal">
+          <div class="lab-screen" data-state="idle">
+            <div class="lab-grid" aria-hidden="true"></div>
+            <div class="lab-hud lab-hud--top">
+              <span class="live-pill"><i></i> SİMÜLASYON</span>
+              <span>CAM / HP-01</span>
+            </div>
+
+            <div class="hand-map" data-gesture="reverse">
+              <span class="hand-map__label">SAĞ EL · AVUÇ İÇİ</span>
+              <svg viewBox="0 0 260 300" role="img" aria-labelledby="hand-pose-title">
+                <title id="hand-pose-title">Sağ el — açık avuç</title>
+                <g class="hand-pose hand-pose--open">
+<path class="hand-silhouette" d="M102 279 L101 251 Q79 238 69 211 L32 159 C20 141 36 128 48 141 L76 174 Q82 179 82 163 L69 76 C66 57 86 52 91 70 L108 145 Q111 151 114 144 L108 41 C107 22 129 20 131 40 L139 141 Q140 149 145 141 L150 51 C151 32 172 34 171 54 L166 149 Q166 157 172 151 L186 87 C190 70 210 76 206 94 L190 181 Q188 223 164 249 L164 279 Z"/>
+<path class="hand-crease" d="M84 181 Q104 176 117 193 Q132 215 115 241 M104 174 Q137 184 174 169 M112 214 Q136 195 172 198 M86 100 L94 98 M93 127 L101 125 M117 78 L127 77 M121 116 L132 115 M154 88 L165 89 M152 125 L163 126 M186 119 L196 122 M180 146 L190 149 M109 259 L157 259"/>
+<g class="hand-lines"><path d="M132 253 L95 205 L67 175 L48 153 L36 145 M132 253 L105 162 L94 124 L85 94 L80 72 M105 162 L132 157 L129 111 L124 73 L120 41 M132 157 L158 162 L159 118 L160 83 L161 52 M158 162 L180 178 L186 145 L192 115 L196 88 M180 178 L132 253"/></g>
+                  <g class="hand-points">
+                    <circle cx="132" cy="253" r="5"/>
+                    <circle cx="95" cy="205" r="3.5"/><circle cx="67" cy="175" r="3.5"/><circle cx="48" cy="153" r="3.5"/><circle cx="36" cy="145" r="4"/>
+                    <circle cx="105" cy="162" r="4"/><circle cx="94" cy="124" r="3.5"/><circle cx="85" cy="94" r="3.5"/><circle cx="80" cy="72" r="4"/>
+                    <circle cx="132" cy="157" r="4"/><circle cx="129" cy="111" r="3.5"/><circle cx="124" cy="73" r="3.5"/><circle cx="120" cy="41" r="4"/>
+                    <circle cx="158" cy="162" r="4"/><circle cx="159" cy="118" r="3.5"/><circle cx="160" cy="83" r="3.5"/><circle cx="161" cy="52" r="4"/>
+                    <circle cx="180" cy="178" r="4"/><circle cx="186" cy="145" r="3.5"/><circle cx="192" cy="115" r="3.5"/><circle cx="196" cy="88" r="4"/>
+                  </g>
+                </g>
+                <g class="hand-pose hand-pose--closed">
+<path class="hand-silhouette" d="M99 279 L98 244 Q77 228 73 204 L69 151 Q67 130 81 123 Q91 119 99 129 L99 116 C99 95 124 92 129 112 C135 91 158 98 158 118 C168 102 190 111 189 132 L194 181 Q197 222 164 247 L164 279 Z"/>
+<path class="hand-crease" d="M99 132 L101 168 Q113 182 128 169 L129 119 M129 169 Q146 181 158 167 L158 124 M158 167 Q175 180 188 163 M83 198 Q115 226 157 212 M108 258 L157 258"/>
+<path class="hand-silhouette hand-thumb" d="M79 214 Q62 198 68 176 Q71 164 83 164 Q91 163 102 170 L144 186 Q156 191 151 202 Q147 212 135 209 L100 198 Q95 211 99 220"/>
+<path class="hand-crease" d="M134 187 Q143 187 149 194 L146 203 Q138 205 132 200Z M78 190 Q83 195 89 196"/>
+<g class="hand-lines"><path d="M131 250 L89 204 L83 179 L111 187 L139 195 M131 250 L88 145 L87 170 M131 250 L114 129 L115 161 M131 250 L144 129 L144 161 M131 250 L175 143 L176 163"/></g>
+                  <g class="hand-points"><circle cx="131" cy="250" r="5"/><circle cx="89" cy="204" r="4"/><circle cx="83" cy="179" r="4"/><circle cx="111" cy="187" r="3.5"/><circle cx="139" cy="195" r="4"/><circle cx="88" cy="145" r="4"/><circle cx="114" cy="129" r="4"/><circle cx="144" cy="129" r="4"/><circle cx="175" cy="143" r="4"/></g>
+                </g>
+                <g class="hand-pose hand-pose--left">
+<path class="hand-silhouette" d="M112 279 L111 239 Q98 221 78 212 L31 185 Q16 177 20 166 Q24 156 40 161 L86 177 Q94 181 94 170 L89 133 Q86 112 99 106 Q112 101 119 115 L119 104 Q119 86 133 85 Q147 85 150 104 Q154 87 167 92 Q179 95 179 112 Q186 100 198 107 Q209 114 206 132 L205 189 Q206 221 177 242 L177 279 Z"/>
+<path class="hand-crease" d="M96 134 L99 159 Q108 171 122 160 L120 118 M122 160 Q137 174 151 159 L150 110 M151 159 Q165 173 179 158 L179 118 M179 158 Q191 169 203 156 M91 187 Q123 180 139 200 M117 220 Q145 232 178 212 M120 259 L170 259"/>
+<g class="hand-lines"><path d="M144 249 L105 212 L80 191 L53 179 L31 170 M144 249 L106 137 L108 156 M106 137 L135 124 L136 154 M135 124 L164 129 L165 154 M164 129 L193 140 L193 155 M193 140 L144 249"/></g>
+                  <g class="hand-points"><circle cx="144" cy="249" r="5"/><circle cx="105" cy="212" r="4"/><circle cx="80" cy="191" r="3.5"/><circle cx="53" cy="179" r="3.5"/><circle cx="31" cy="170" r="4"/><circle cx="106" cy="137" r="4"/><circle cx="135" cy="124" r="4"/><circle cx="164" cy="129" r="4"/><circle cx="193" cy="140" r="4"/></g>
+                </g>
+                <g class="hand-pose hand-pose--right"><g transform="translate(260 0) scale(-1 1)">
+<path class="hand-silhouette" d="M112 279 L111 239 Q98 221 78 212 L31 185 Q16 177 20 166 Q24 156 40 161 L86 177 Q94 181 94 170 L89 133 Q86 112 99 106 Q112 101 119 115 L119 104 Q119 86 133 85 Q147 85 150 104 Q154 87 167 92 Q179 95 179 112 Q186 100 198 107 Q209 114 206 132 L205 189 Q206 221 177 242 L177 279 Z"/>
+<path class="hand-crease" d="M119 114 L121 143 M150 104 L151 140 M179 113 L180 145 M99 132 Q108 126 116 132 M129 114 Q139 108 146 115 M158 120 Q167 114 175 121 M185 135 Q193 130 200 136 M122 155 Q128 189 125 224 M151 152 Q155 188 151 224 M180 157 Q180 194 173 222 M87 183 Q102 192 110 207 M120 259 L170 259"/>
+<g class="hand-lines"><path d="M144 249 L105 212 L80 191 L53 179 L31 170 M144 249 L106 137 L108 156 M106 137 L135 124 L136 154 M135 124 L164 129 L165 154 M164 129 L193 140 L193 155 M193 140 L144 249"/></g>
+                  <g class="hand-points"><circle cx="144" cy="249" r="5"/><circle cx="105" cy="212" r="4"/><circle cx="80" cy="191" r="3.5"/><circle cx="53" cy="179" r="3.5"/><circle cx="31" cy="170" r="4"/><circle cx="106" cy="137" r="4"/><circle cx="135" cy="124" r="4"/><circle cx="164" cy="129" r="4"/><circle cx="193" cy="140" r="4"/></g>
+                </g></g>
+              </svg>
+            </div>
+
+            <div class="car-zone" aria-hidden="true">
+              <div class="path-line"></div>
+              <div class="car"><img class="car__illustration" src="./assets/car-top.svg?v=6" alt="" width="240" height="350" /></div>
+            </div>
+
+            <div class="lab-hud lab-hud--bottom">
+              <div>
+                <small>TANINAN HAREKET</small>
+                <strong id="detected-gesture">BEKLENİYOR</strong>
+              </div>
+              <div>
+                <small>ARAÇ DURUMU</small>
+                <strong id="vehicle-state">DURUYOR</strong>
+              </div>
+              <div class="confidence-wrap">
+                <small>GÜVEN</small>
+                <strong id="confidence-value">—</strong>
+              </div>
+            </div>
+          </div>
+
+          <div class="gesture-controls" role="group" aria-label="Araç hareket simülasyonu">
+            <button class="gesture-button" type="button" data-gesture="gas">
+              <span class="gesture-button__index">01</span>
+              <span class="gesture-button__icon">✊</span>
+              <span><b>Gaz</b><small>Yumruk</small></span>
+            </button>
+            <button class="gesture-button" type="button" data-gesture="left">
+              <span class="gesture-button__index">02</span>
+              <span class="gesture-button__icon">☜</span>
+              <span><b>Sol</b><small>Başparmak sola</small></span>
+            </button>
+            <button class="gesture-button" type="button" data-gesture="right">
+              <span class="gesture-button__index">03</span>
+              <span class="gesture-button__icon">☞</span>
+              <span><b>Sağ</b><small>Başparmak sağa</small></span>
+            </button>
+            <button class="gesture-button gesture-button--stop" type="button" data-gesture="reverse">
+              <span class="gesture-button__index">04</span>
+              <span class="gesture-button__icon">✋</span>
+              <span><b>Geri</b><small>Açık avuç</small></span>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="stats" aria-label="Proje metrikleri">
+        <article class="stat reveal">
+          <span>01</span><strong data-count="12458">12.458</strong><p>Eğitim, doğrulama ve test örneği</p>
+        </article>
+        <article class="stat reveal">
+          <span>02</span><strong>%99,64</strong><p>Çapraz doğrulama macro F1 ortalaması</p>
+        </article>
+        <article class="stat reveal">
+          <span>03</span><strong>76</strong><p>Normalize edilmiş model özelliği</p>
+        </article>
+        <article class="stat reveal">
+          <span>04</span><strong>≤300 ms</strong><p>Hedeflenen geri gecikmesi</p>
+        </article>
+      </section>
+
+      <section class="gestures section-pad" id="gestures" aria-labelledby="gestures-title">
+        <div class="section-heading section-heading--row reveal">
+          <div>
+            <p class="eyebrow">HAREKET SÖZLÜĞÜ / V5.1</p>
+            <h2 id="gestures-title">Dört net hareket.<br />Tek doğal kontrol.</h2>
+          </div>
+          <p>Yalnızca sağ el kullanılır. Yön, kameradaki görüntüye göre okunur; selfie görünümü sayesinde senin solun ekranda da soldur.</p>
+        </div>
+
+        <div class="gesture-grid">
+          <article class="gesture-card gesture-card--gas reveal">
+            <div class="gesture-card__visual">
+              <small class="gesture-card__instruction">SAĞ EL · YUMRUK</small>
+              <img class="gesture-card__hand" src="./assets/gestures/gas.svg?v=2" alt="Sağ el, kapalı yumruk" width="260" height="300" loading="lazy" />
+              <strong class="gesture-card__result">İleri hareket</strong><i aria-hidden="true"></i>
+            </div>
+            <div class="gesture-card__head"><small>HAREKET / 01</small><b>GAZ</b></div>
+            <p>Sağ elini yumruk yaptığında araç ileri gider. Açık avuç seçildiğinde sürüş yönü geriye döner.</p>
+            <ul><li>5 kare onay</li><li>≥ %85 güven</li></ul>
+          </article>
+          <article class="gesture-card gesture-card--reverse reveal">
+            <div class="gesture-card__visual">
+              <small class="gesture-card__instruction">SAĞ EL · AÇIK AVUÇ</small>
+              <img class="gesture-card__hand" src="./assets/gestures/reverse.svg?v=2" alt="Sağ el, açık avuç içi" width="260" height="300" loading="lazy" />
+              <strong class="gesture-card__result">Geriye hareket</strong><i aria-hidden="true"></i>
+            </div>
+            <div class="gesture-card__head"><small>HAREKET / 02</small><b>GERİ</b></div>
+            <p>Sağ avucunu açtığında araç geriye doğru gider. Sol ve sağ komutlarıyla geri giderken de yön verebilirsin.</p>
+            <ul><li>2 kare onay</li><li>≥ %60 güven</li></ul>
+          </article>
+          <article class="gesture-card gesture-card--left reveal">
+            <div class="gesture-card__visual">
+              <small class="gesture-card__instruction">SAĞ EL · AVUÇ İÇİ</small>
+              <img class="gesture-card__hand" src="./assets/gestures/left.svg?v=2" alt="Sağ avuç içi, başparmak sola açık" width="260" height="300" loading="lazy" />
+              <strong class="gesture-card__result">Sola yönlendir</strong><i aria-hidden="true"></i>
+            </div>
+            <div class="gesture-card__head"><small>HAREKET / 03</small><b>SOL</b></div>
+            <p>Yumruk sabit kalır, başparmak yatay biçimde sola uzanır. İç teker yavaşlar ve araç kavis çizer.</p>
+            <ul><li>3 kare onay</li><li>±35° açı kontrolü</li></ul>
+          </article>
+          <article class="gesture-card gesture-card--right reveal">
+            <div class="gesture-card__visual">
+              <small class="gesture-card__instruction">SAĞ EL · ELİN DIŞI</small>
+              <img class="gesture-card__hand" src="./assets/gestures/right.svg?v=2" alt="Sağ elin dışı, başparmak sağa açık" width="260" height="300" loading="lazy" />
+              <strong class="gesture-card__result">Sağa yönlendir</strong><i aria-hidden="true"></i>
+            </div>
+            <div class="gesture-card__head"><small>HAREKET / 04</small><b>SAĞ</b></div>
+            <p>Aynı yumruk formunda başparmak sağa uzanır. Yön sınıftan değil, başparmak geometrisinden doğrulanır.</p>
+            <ul><li>3 kare onay</li><li>Geometrik doğrulama</li></ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="system section-pad" id="system" aria-labelledby="system-title">
+        <div class="system__intro reveal">
+          <p class="eyebrow">SİSTEM MİMARİSİ</p>
+          <h2 id="system-title">Bir bakıştan<br />bir harekete.</h2>
+          <p>Kamera görüntüsünden motor sürücüsüne uzanan akış, sorumluluğu net altı katmana ayırır.</p>
+        </div>
+
+        <ol class="system-flow">
+          <li class="flow-step reveal">
+            <span class="flow-step__num">01</span><i class="flow-step__pulse"></i>
+            <div><small>GİRDİ</small><h3>Kamera</h3><p>640×480 görüntü, 30 fps ve ayna görünümü.</p></div>
+          </li>
+          <li class="flow-step reveal">
+            <span class="flow-step__num">02</span><i class="flow-step__pulse"></i>
+            <div><small>ALGILAMA</small><h3>MediaPipe</h3><p>Sağ eldeki 21 üç boyutlu eklem noktası.</p></div>
+          </li>
+          <li class="flow-step reveal">
+            <span class="flow-step__num">03</span><i class="flow-step__pulse"></i>
+            <div><small>ÖZELLİK</small><h3>Normalize</h3><p>Bilek merkezli, ölçekten bağımsız 76 özellik.</p></div>
+          </li>
+          <li class="flow-step reveal">
+            <span class="flow-step__num">04</span><i class="flow-step__pulse"></i>
+            <div><small>KARAR</small><h3>MLP + Kural</h3><p>Sınıflandırma, güven eşiği ve geometri kontrolü.</p></div>
+          </li>
+          <li class="flow-step reveal">
+            <span class="flow-step__num">05</span><i class="flow-step__pulse"></i>
+            <div><small>İLETİŞİM</small><h3>Wi‑Fi</h3><p>Komut ve 300 ms kalp atışı ile ESP32 bağlantısı.</p></div>
+          </li>
+          <li class="flow-step reveal">
+            <span class="flow-step__num">06</span><i class="flow-step__pulse"></i>
+            <div><small>HAREKET</small><h3>Motorlar</h3><p>TB6612FNG sürücüyle diferansiyel teker kontrolü.</p></div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="model" id="model" aria-labelledby="model-title">
+        <div class="model__header section-pad reveal">
+          <p class="eyebrow">MODEL RAPORU / MLP_128_64</p>
+          <h2 id="model-title">Küçük model.<br /><em>Büyük kesinlik.</em></h2>
+          <div class="model__summary">
+            <p>Kendi veri setiyle eğitilen ağ; 128 ve 64 nöronlu iki katman, dropout ve L2 düzenlileştirme kullanır.</p>
+          </div>
+        </div>
+
+        <div class="model-grid section-pad">
+          <div class="score-ring reveal" aria-label="Yüzde 99,64 macro F1">
+            <svg viewBox="0 0 240 240" aria-hidden="true">
+              <circle class="score-ring__track" cx="120" cy="120" r="98"></circle>
+              <circle class="score-ring__value" cx="120" cy="120" r="98"></circle>
+            </svg>
+            <div><strong>99,64</strong><span>MACRO F1 / %</span></div>
+          </div>
+
+          <div class="class-bars reveal" aria-label="Veri seti sınıf dağılımı">
+            <div class="class-bars__head"><span>VERİ DAĞILIMI</span><span>12.458 TOPLAM</span></div>
+            <div class="bar-row"><span>GAZ</span><i><b style="--w: 84.6%"></b></i><strong>2.870</strong></div>
+            <div class="bar-row"><span>GERİ</span><i><b style="--w: 100%"></b></i><strong>3.391</strong></div>
+            <div class="bar-row"><span>SOL</span><i><b style="--w: 90.4%"></b></i><strong>3.064</strong></div>
+            <div class="bar-row"><span>SAĞ</span><i><b style="--w: 92.4%"></b></i><strong>3.133</strong></div>
+          </div>
+
+          <div class="model-specs reveal">
+            <div><span>GİRDİ</span><strong>76</strong><small>özellik</small></div>
+            <div><span>KATMAN</span><strong>128—64</strong><small>nöron</small></div>
+            <div><span>DROPOUT</span><strong>0,30</strong><small>oran</small></div>
+            <div><span>ÖĞRENME</span><strong>0,001</strong><small>hız</small></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="safety section-pad" id="safety" aria-labelledby="safety-title">
+        <div class="safety__title reveal">
+          <p class="eyebrow">GÜVENLİK ÖNCE GELİR</p>
+          <h2 id="safety-title">Şüphedeysen<br />dur<span>.</span></h2>
+        </div>
+        <div class="safety__rules">
+          <article class="reveal"><span>01</span><h3>Açık avuçla geri sürüş.</h3><p>Açık avuç onaylandığında araç geriye gider; yumrukla yeniden ileri sürüşe geçilir.</p></article>
+          <article class="reveal"><span>02</span><h3>El kaybolursa araç durur.</h3><p>Görüntü 0,5 saniye kesilirse komut otomatik sıfırlanır.</p></article>
+          <article class="reveal"><span>03</span><h3>Bağlantı susarsa araç durur.</h3><p>ESP32, bir saniye boyunca kalp atışı almazsa motorları kapatır.</p></article>
+        </div>
+      </section>
+
+      <section class="closing section-pad" aria-labelledby="closing-title">
+        <div class="closing__identity reveal">
+          <div class="closing__meta"><span>HANDPILOT CAR</span><span>2026</span></div>
+          <img src="./assets/brand/handpilot-mark-light.svg?v=8" width="240" height="240" alt="HandPilot logosu" />
+          <div class="closing__signature"><span>Hareket senden.</span><strong>Kontrol elinde.</strong></div>
+        </div>
+        <div class="closing__copy reveal">
+          <p class="eyebrow">İNSAN HAREKETİ × MAKİNE ZEKÂSI</p>
+          <h2 id="closing-title">Bir hareket.<br />Tam <span>kontrol.</span></h2>
+          <p class="closing__description">Elini kaldır, yönünü seç. Gaz, geri ve dönüşleri yalnızca el hareketlerinle yönet.</p>
+          <a class="primary-button" href="#experience">Yeniden dene <span aria-hidden="true">↗</span></a>
+          <p class="closing__note">Kumanda yok. Elin direksiyon.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer section-pad">
+      <div class="site-footer__brand">
+        <span class="brand__mark"><img src="./assets/brand/handpilot-mark-light.svg?v=8" alt="" width="64" height="64" /></span>
+        <p>HandPilot Car<br />Bitirme Projesi</p>
+      </div>
+      <div class="site-footer__links">
+        <a href="#gestures">Hareketler</a>
+        <a href="#system">Mimari</a>
+        <a href="#model">Model</a>
+        <a href="#safety">Güvenlik</a>
+      </div>
+      <p class="site-footer__note">Kamera → MediaPipe → MLP → ESP32 → Hareket</p>
+      <a class="back-top" href="#top">Yukarı dön</a>
+    </footer>
+  </body>
+</html>

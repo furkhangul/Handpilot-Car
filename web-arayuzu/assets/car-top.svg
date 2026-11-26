@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 350" fill="none"><title>HandPilot sportif araç</title>
+<defs>
+<linearGradient id="shell" x1="40" y1="150" x2="200" y2="190" gradientUnits="userSpaceOnUse"><stop stop-color="#71816b"/><stop offset=".12" stop-color="#334130"/><stop offset=".48" stop-color="#263024"/><stop offset=".85" stop-color="#172017"/><stop offset="1" stop-color="#65745e"/></linearGradient>
+<linearGradient id="glass" x1="100" y1="95" x2="140" y2="250" gradientUnits="userSpaceOnUse"><stop stop-color="#52737b"/><stop offset=".45" stop-color="#1d343c"/><stop offset="1" stop-color="#0c191d"/></linearGradient>
+<linearGradient id="roof" x1="83" y1="140" x2="159" y2="216" gradientUnits="userSpaceOnUse"><stop stop-color="#495543"/><stop offset="1" stop-color="#202b1d"/></linearGradient>
+</defs>
+<g fill="#0b0e0b" stroke="#384136" stroke-width="2"><rect x="26" y="66" width="29" height="65" rx="10"/><rect x="185" y="66" width="29" height="65" rx="10"/><rect x="26" y="247" width="29" height="65" rx="10"/><rect x="185" y="247" width="29" height="65" rx="10"/></g>
+<path d="M74 18Q120 5 166 18Q188 25 195 57L201 103 194 153 197 261 203 292Q204 318 182 330Q120 344 58 330Q36 318 37 292L43 261 46 153 39 103 45 57Q52 25 74 18Z" fill="url(#shell)" stroke="#819173" stroke-width="1.5"/>
+<!-- Bright shoulder rails define a compact sports-car silhouette. -->
+<path d="M59 43Q49 65 49 98L56 126M181 43Q191 65 191 98L184 126M49 263l-2 32q0 17 16 23M191 263l2 32q0 17-16 23" stroke="#d9ff43" stroke-width="4" stroke-linecap="round"/>
+<path d="M88 26h64l-5 7H93Z" fill="#10160e"/>
+<path d="M109 35h9v57h-9zM123 35h8v57h-8z" fill="#d9ff43" opacity=".92"/>
+<path d="m58 46 28-8-2 9-28 8Zm124 0-28-8 2 9 28 8Z" fill="#edfff4"/>
+<path d="M73 62 68 86M167 62l5 24" stroke="#121c10" stroke-width="5" stroke-linecap="round"/>
+<!-- Continuous dark cabin, separated by a short roof. -->
+<path d="M74 102Q120 86 166 102L178 150 174 225 164 255Q120 267 76 255L66 225 62 150Z" fill="url(#glass)" stroke="#0a110b" stroke-width="3"/>
+<path d="m79 109 74-7m-71 16 43-5" stroke="#b4d5d9" stroke-opacity=".35" stroke-width="2" stroke-linecap="round"/>
+<path d="M83 144Q120 136 157 144L160 218Q120 228 80 218Z" fill="url(#roof)" stroke="#839077" stroke-width="1.2"/>
+<path d="m72 151 5 64m91-64-5 64" stroke="#a6b59b" stroke-opacity=".4" stroke-width="1.5"/>
+<path d="M47 132 27 140v10l19-5M193 132l20 8v10l-19-5" fill="#d9ff43"/>
+<path d="M52 185v16m136-16v16" stroke="#8e9b83" stroke-width="2.5" stroke-linecap="round"/>
+<path d="M109 268h9v29h-9zM123 268h8v29h-8z" fill="#d9ff43"/>
+<path d="M60 302Q120 315 180 302" stroke="#141a12" stroke-width="14" stroke-linecap="round"/>
+<path d="M60 300 87 305m93-5-27 5" stroke="#ff6255" stroke-width="4" stroke-linecap="round"/>
+<path d="M91 320h58l-8 10H99Z" fill="#080e08"/><path d="M108 321v7m12-7v7m12-7v7" stroke="#626d59" stroke-width="2"/>
+<g transform="translate(102 164) scale(.56)"><path d="M12 15Q12 11 16 11H22V53H16Q12 53 12 49ZM42 11H48Q52 11 52 15V49Q52 53 48 53H42Z" fill="#ffffff"/><path d="M20 32H24V38H20ZM40 32H44V38H40Z" fill="#ffffff"/><path d="M24 30L26 25Q27 23 29 23H35Q37 23 38 25L40 30L41 32V39Q41 41 39 41H25Q23 41 23 39V32Z" fill="#d9ff43"/><path d="M28 26H36L38 31H26Z" fill="#172017"/><path d="M26 34H29M35 34H38" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round"/><path d="M29 38H35" stroke="#172017" stroke-width="1.5" stroke-linecap="round"/><path d="M24 40V43H27V41M37 41V43H40V40" fill="#ffffff"/></g>
+</svg>
